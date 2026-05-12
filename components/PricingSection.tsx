@@ -17,7 +17,7 @@ export default function PricingSection() {
 
       <div className="grid md:grid-cols-3 gap-6">
 
-        <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+        <div className=" relative rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-500 cursor-pointer hover:scale-[1.05] hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_80px_rgba(255,255,255,0.12)] ">
           <h3 className="text-3xl font-semibold mb-4">
             Starter
           </h3>
@@ -27,7 +27,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="rounded-[36px] border border-white/20 bg-white/10 p-8 backdrop-blur-xl">
+        <div className=" relative rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-500 cursor-pointer hover:scale-[1.05] hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_80px_rgba(255,255,255,0.12)]">
           <h3 className="text-3xl font-semibold mb-4">
             Business
           </h3>
@@ -37,7 +37,7 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+        <div className="relative rounded-[40px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-500 cursor-pointer hover:scale-[1.05] hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_0_80px_rgba(255,255,255,0.12)]">
           <h3 className="text-3xl font-semibold mb-4">
             Premium
           </h3>
