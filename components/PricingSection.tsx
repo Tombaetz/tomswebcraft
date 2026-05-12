@@ -23,7 +23,7 @@ export default function PricingSection() {
           </h3>
 
           <p className="text-5xl font-bold mb-6">
-            €499
+            €299
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function PricingSection() {
           </h3>
 
           <p className="text-5xl font-bold mb-6">
-            €999
+            €699
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export default function PricingSection() {
           </h3>
 
           <p className="text-5xl font-bold mb-6">
-            €1999
+            €1299
           </p>
         </div>
 
