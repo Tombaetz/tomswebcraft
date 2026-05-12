@@ -1,3 +1,5 @@
+import PricingSection from "@/components/PricingSection";
+
 export default function TomWebCraftLanding() {
   return (
     <main className="min-h-screen bg-black text-white overflow-hidden">
@@ -149,6 +151,10 @@ export default function TomWebCraftLanding() {
           ))}
         </div>
       </section>
+      
+
+      <PricingSection />
+
 
       {/* About */}
       <section id="about" className="px-6 pb-32 max-w-5xl mx-auto text-center">
