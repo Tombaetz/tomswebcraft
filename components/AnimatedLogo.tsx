@@ -25,14 +25,14 @@ export default function AnimatedLogo() {
   const showingWord = step > 0 && step <= words.length;
 
   return (
-    <div className="flex items-center justify-center min-h-[420px] overflow-hidden pt-24">
+    <div className="flex items-center justify-center min-h-[320px] md:min-h-[420px] overflow-hidden pt-16 md:pt-24 px-4">
 
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex items-center justify-center gap-4 md:gap-10">
 
         {/* LEFT BRACKET */}
         <motion.div
           animate={{
-            x: showingWord ? 28 : 0,
+            x: showingWord ? 18 : 0,
             opacity: 1,
           }}
           transition={{
@@ -40,7 +40,7 @@ export default function AnimatedLogo() {
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
-            text-[120px]
+            text-[70px]
             md:text-[160px]
             font-thin
             text-[#FF6B35]
@@ -52,7 +52,7 @@ export default function AnimatedLogo() {
         </motion.div>
 
         {/* CENTER */}
-        <div className="relative flex items-center justify-center w-[340px] h-[160px]">
+        <div className="relative flex items-center justify-center w-[220px] md:w-[340px] h-[120px] md:h-[160px]">
 
           <AnimatePresence mode="wait">
 
@@ -79,18 +79,18 @@ export default function AnimatedLogo() {
                   duration: 1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="flex items-end gap-4"
+                className="flex items-end gap-2 md:gap-3"
               >
 
-               <div className="flex items-end gap-3">
+                {/* LEFT BAR */}
+                <div className="w-2 md:w-4 h-10 md:h-16 rounded-full bg-[#F3F4F6]" />
 
-              <div className="w-4 h-16 rounded-full bg-[#F3F4F6]" />
+                {/* CENTER BAR */}
+                <div className="w-2 md:w-4 h-16 md:h-28 rounded-full bg-[#E9B44C]" />
 
-              <div className="w-4 h-28 rounded-full bg-[#E9B44C]" />
+                {/* RIGHT BAR */}
+                <div className="w-2 md:w-4 h-10 md:h-16 rounded-full bg-[#F3F4F6]" />
 
-              <div className="w-4 h-16 rounded-full bg-[#F3F4F6]" />
-
-              </div>
               </motion.div>
             )}
 
@@ -102,19 +102,19 @@ export default function AnimatedLogo() {
                   opacity: 0,
                   y: 20,
                   filter: "blur(12px)",
-                  letterSpacing: "0.4em",
+                  letterSpacing: "0.3em",
                 }}
                 animate={{
                   opacity: 1,
                   y: 0,
                   filter: "blur(0px)",
-                  letterSpacing: "0.22em",
+                  letterSpacing: "0.12em",
                 }}
                 exit={{
                   opacity: 0,
                   y: -20,
                   filter: "blur(12px)",
-                  letterSpacing: "0.4em",
+                  letterSpacing: "0.3em",
                 }}
                 transition={{
                   duration: 1,
@@ -123,11 +123,12 @@ export default function AnimatedLogo() {
                 className="
                   absolute
                   text-white/90
-                  text-3xl
+                  text-lg
                   md:text-5xl
                   uppercase
                   font-extralight
-                  tracking-[0.22em]
+                  tracking-[0.12em]
+                  md:tracking-[0.22em]
                   whitespace-nowrap
                   select-none
                 "
@@ -142,7 +143,7 @@ export default function AnimatedLogo() {
         {/* RIGHT BRACKET */}
         <motion.div
           animate={{
-            x: showingWord ? -28 : 0,
+            x: showingWord ? -18 : 0,
             opacity: 1,
           }}
           transition={{
@@ -150,7 +151,7 @@ export default function AnimatedLogo() {
             ease: [0.22, 1, 0.36, 1],
           }}
           className="
-            text-[120px]
+            text-[70px]
             md:text-[160px]
             font-thin
             text-[#FF6B35]
