@@ -141,7 +141,7 @@ export default function MockupPage() {
                   </div>
 
                   <span className="text-white/80 text-sm tracking-tight">
-                    Max Fitness Coach
+                    TomWebCraft
                   </span>
                 </div>
 
@@ -172,8 +172,7 @@ export default function MockupPage() {
                   </h2>
 
                   <p className="text-white/45 text-sm md:text-lg max-w-2xl leading-relaxed">
-                    Minimalistische Websites mit Fokus auf Vertrauen,
-                    Klarheit und moderne Nutzererfahrung.
+                    Digitale Oberflächen sollten sich nicht fremd anfühlen. 
                   </p>
 
                 </div>
@@ -238,12 +237,12 @@ export default function MockupPage() {
                 <div className="space-y-3">
 
                   <h3 className="text-white text-xl font-medium tracking-tight">
-                    Meine Person
+                    Über mich
                   </h3>
 
                   <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-2xl">
-                    Fokus auf moderne Web Experiences, klare Designs
-                    und digitale Identität mit Wiedererkennungswert.
+                    Ich heiße Tom Bätz, komme aus Erfurt und brenne für modernes, organisches Design. 
+                    Mein Fokus liegt darauf, digitale Oberflächen zu entwickeln, die sich natürlich anfühlen und individuelle Visionen klar und hochwertig in die Realität übersetzen.
                   </p>
 
                 </div>
@@ -262,7 +261,7 @@ export default function MockupPage() {
               <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
 
                 <div className="text-white/30 text-sm">
-                  © 2026 Max Fitness Coach
+                  © 2026 TomWebCraft
                 </div>
 
                 <div className="flex gap-5 text-xs text-white/25">
