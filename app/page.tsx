@@ -1,5 +1,9 @@
 import PricingSection from "@/components/PricingSection";
 import AnimatedLogo from "@/components/AnimatedLogo";
+import ServicesSection from "@/components/ServicesSection";
+import MockupPage from "@/components/MockupPage";
+
+
 
 export default function TomWebCraftLanding() {
   return (
@@ -85,95 +89,13 @@ export default function TomWebCraftLanding() {
         </div>
       </section>
 
-      {/* Feature Card */}
-      <section className="px-6 pb-32 max-w-7xl mx-auto">
-        <div className="rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl p-8 md:p-14 shadow-2xl overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-
-          <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-white/40 mb-4">
-                TomWebCraft
-              </p>
-
-              <h3 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
-                Websites, die modern wirken und Vertrauen schaffen.
-              </h3>
-
-              <p className="mt-6 text-white/60 leading-relaxed text-lg">
-                Fokus auf klare Designs, moderne Animationen und schnelle
-                Nutzererfahrung. Entwickelt für Unternehmen, die online
-                professionell auftreten möchten.
-              </p>
-            </div>
-
-            <div className="relative">
-              <div className="rounded-[30px] bg-gradient-to-br from-white/10 to-white/5 border border-white/10 p-6 shadow-2xl">
-                <div className="rounded-2xl bg-black border border-white/10 p-6">
-                  <div className="flex gap-2 mb-6">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="h-6 w-2/3 rounded-full bg-white/10" />
-                    <div className="h-4 w-full rounded-full bg-white/5" />
-                    <div className="h-4 w-5/6 rounded-full bg-white/5" />
-                    <div className="h-4 w-4/6 rounded-full bg-white/5" />
-                  </div>
-
-                  <div className="mt-8 grid grid-cols-2 gap-4">
-                    <div className="h-28 rounded-2xl bg-white/5 border border-white/5" />
-                    <div className="h-28 rounded-2xl bg-white/5 border border-white/5" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Mockup Page */}
+      <MockupPage />
 
       {/* Services */}
-      <section id="services" className="px-6 pb-32 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-white/40 uppercase tracking-[0.25em] text-sm mb-4">
-            Services
-          </p>
-
-          <h3 className="text-4xl md:text-5xl font-semibold tracking-tight">
-            Was ich anbiete
-          </h3>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              title: "Moderne Websites",
-              text: "Minimalistische und professionelle Websites für Unternehmen und lokale Dienstleister.",
-            },
-            {
-              title: "Mobile Optimierung",
-              text: "Optimiert für Smartphones, Tablets und moderne Nutzererfahrung.",
-            },
-            {
-              title: "Wartung & Updates",
-              text: "Hosting, kleine Änderungen und langfristige Betreuung auf Wunsch.",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-2xl p-8 hover:bg-white/10 transition"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-white/10 mb-6" />
-              <h4 className="text-2xl font-semibold mb-4">{item.title}</h4>
-              <p className="text-white/60 leading-relaxed">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ServicesSection />
       
-
+      {/*Pricing */}
       <PricingSection />
 
 
