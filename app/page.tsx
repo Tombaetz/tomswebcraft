@@ -2,7 +2,7 @@ import PricingSection from "@/components/PricingSection";
 import AnimatedLogo from "@/components/AnimatedLogo";
 import ServicesSection from "@/components/ServicesSection";
 import MockupPage from "@/components/MockupPage";
-
+import HeroHeadline from "@/components/HeroHeadline";
 
 
 export default function TomWebCraftLanding() {
@@ -61,33 +61,11 @@ export default function TomWebCraftLanding() {
 
 
       {/* Hero */}
-      <section className="px-6 pt-32 pb-24 max-w-7xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-sm text-white/70 mb-8">
-          Moderne Websites für Unternehmen
-        </div>
+      <section className="px-6 pt-40 pb-32 max-w-7xl mx-auto">
 
-        <h2 className="text-5xl md:text-7xl font-semibold leading-tight tracking-tight max-w-5xl mx-auto">
-          Moderne Websites.
-          <br />
-          Schnell, elegant und mobil optimiert.
-        </h2>
+  <HeroHeadline />
 
-        <p className="mt-8 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-          Ich entwickle moderne Websites für kleine Unternehmen und lokale
-          Dienstleister. Minimalistisches Design, schnelle Ladezeiten und ein
-          professioneller Auftritt auf allen Geräten.
-        </p>
-
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition shadow-2xl">
-            Projekt starten
-          </button>
-
-          <button className="px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition">
-            Beispiele ansehen
-          </button>
-        </div>
-      </section>
+</section>
 
       {/* Mockup Page */}
       <MockupPage />
