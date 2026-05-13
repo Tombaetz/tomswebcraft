@@ -3,7 +3,7 @@ import AnimatedLogo from "@/components/AnimatedLogo";
 import ServicesSection from "@/components/ServicesSection";
 import MockupPage from "@/components/MockupPage";
 import HeroHeadline from "@/components/HeroHeadline";
-
+import CTA_End from "@/components/CTA_End";
 
 export default function TomWebCraftLanding() {
   return (
@@ -69,12 +69,8 @@ export default function TomWebCraftLanding() {
       <section id="projects" className="px-6 pb-32 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
           <div>
-            <p className="text-white/40 uppercase tracking-[0.25em] text-sm mb-4">
-              Projekte
-            </p>
-
             <h3 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Beispielprojekte
+              Design Concepts
             </h3>
           </div>
         </div>
@@ -86,43 +82,13 @@ export default function TomWebCraftLanding() {
               className="rounded-[32px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl hover:scale-[1.02] transition duration-300"
             >
               <div className="h-64 bg-gradient-to-br from-white/10 to-white/5" />
-
-              <div className="p-6">
-                <h4 className="text-2xl font-semibold mb-2">
-                  Projekt {item}
-                </h4>
-
-                <p className="text-white/60 leading-relaxed">
-                  Modernes Webdesign mit Fokus auf Geschwindigkeit,
-                  Benutzerfreundlichkeit und minimalistischer Ästhetik.
-                </p>
-              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section id="contact" className="px-6 pb-32 max-w-5xl mx-auto text-center">
-        <div className="rounded-[40px] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl p-12 md:p-20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 pointer-events-none" />
-
-          <div className="relative z-10">
-            <h3 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-              Bereit für eine moderne Website?
-            </h3>
-
-            <p className="mt-6 text-white/60 text-lg max-w-2xl mx-auto leading-relaxed">
-              Lass uns gemeinsam eine moderne und professionelle Website für dein
-              Unternehmen entwickeln.
-            </p>
-
-            <button className="mt-10 px-8 py-4 rounded-full bg-white text-black font-medium hover:scale-105 transition shadow-2xl">
-              Kontakt aufnehmen
-            </button>
-          </div>
-        </div>
-      </section>
+     <CTA_End />
 
       {/* Footer */}
       <footer className="border-t border-white/10 px-6 py-10 text-center text-white/40 text-sm">
