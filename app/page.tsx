@@ -1,7 +1,9 @@
 import PricingSection from "@/components/PricingSection";
+import AnimatedLogo from "@/components/AnimatedLogo";
 
 export default function TomWebCraftLanding() {
   return (
+
     <main className="min-h-screen bg-black text-white overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -11,9 +13,25 @@ export default function TomWebCraftLanding() {
 
       {/* Navbar */}
       <header className="w-full px-6 py-5 flex items-center justify-between border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-black/50">
-        <h1 className="text-xl font-semibold tracking-tight">
-          TomWebCraft
-        </h1>
+        <div className="flex items-center gap-3">
+
+  {/* Logo */}
+  <div className="flex items-end gap-1">
+
+    <div className="w-1.5 h-6 rounded-full bg-[#F3F4F6]" />
+
+    <div className="w-1.5 h-10 rounded-full bg-[#E9B44C]" />
+
+    <div className="w-1.5 h-6 rounded-full bg-[#F3F4F6]" />
+
+  </div>
+
+  {/* Text */}
+  <h1 className="text-xl font-semibold tracking-tight text-white">
+    TomWebCraft
+  </h1>
+
+</div>
 
         <nav className="hidden md:flex gap-8 text-sm text-white/70">
           <a href="#services" className="hover:text-white transition">
@@ -34,6 +52,9 @@ export default function TomWebCraftLanding() {
           Anfrage
         </button>
       </header>
+
+      <AnimatedLogo />
+
 
       {/* Hero */}
       <section className="px-6 pt-32 pb-24 max-w-7xl mx-auto text-center">
