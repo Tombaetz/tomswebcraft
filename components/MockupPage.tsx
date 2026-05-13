@@ -65,7 +65,7 @@ export default function MockupPage() {
       {/* Label */}
       <div className="text-center mb-16">
         <p className="text-white/30 uppercase tracking-[0.35em] text-sm">
-          Interactive Design Philosophy
+          Simple can be harder than complex
         </p>
       </div>
 
