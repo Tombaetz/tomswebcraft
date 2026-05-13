@@ -37,21 +37,6 @@ export default function TomWebCraftLanding() {
 
 </div>
 
-        <nav className="hidden md:flex gap-8 text-sm text-white/70">
-          <a href="#services" className="hover:text-white transition">
-            Services
-          </a>
-          <a href="#about" className="hover:text-white transition">
-            Über mich
-          </a>
-          <a href="#projects" className="hover:text-white transition">
-            Projekte
-          </a>
-          <a href="#contact" className="hover:text-white transition">
-            Kontakt
-          </a>
-        </nav>
-
         <button className="px-5 py-2 rounded-full bg-white text-black text-sm font-medium hover:scale-105 transition">
           Anfrage
         </button>
@@ -77,25 +62,8 @@ export default function TomWebCraftLanding() {
       <PricingSection />
 
 
-      {/* About */}
-      <section id="about" className="px-6 pb-32 max-w-5xl mx-auto text-center">
-        <div className="rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl p-10 md:p-16">
-          <p className="text-white/40 uppercase tracking-[0.25em] text-sm mb-4">
-            Über mich
-          </p>
-
-          <h3 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8">
-            Hi, ich bin Tom aus Erfurt.
-          </h3>
-
-          <p className="text-lg text-white/60 leading-relaxed max-w-3xl mx-auto">
-            Ich studiere Angewandte Informatik an der Fachhochschule Erfurt und
-            beschäftige mich intensiv mit modernem Webdesign und digitalen
-            Systemen. Mein Fokus liegt auf schnellen, modernen und klaren
-            Websites für kleine Unternehmen.
-          </p>
-        </div>
-      </section>
+      {/* Potenzielles nächstes Feature ? */}
+      
 
       {/* Projects */}
       <section id="projects" className="px-6 pb-32 max-w-7xl mx-auto">
