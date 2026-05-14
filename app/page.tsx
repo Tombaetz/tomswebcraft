@@ -1,9 +1,10 @@
 import PricingSection from "@/components/PricingSection";
 import AnimatedLogo from "@/components/AnimatedLogo";
-import ServicesSection from "@/components/ServicesSection";
+/*import ServicesSection from "@/components/ServicesSection";*/
 import MockupPage from "@/components/MockupPage";
 import HeroHeadline from "@/components/HeroHeadline";
 import CTA_End from "@/components/CTA_End";
+import DesignConcepts from "@/components/DesignConcepts";
 
 export default function TomWebCraftLanding() {
   return (
@@ -55,37 +56,14 @@ export default function TomWebCraftLanding() {
       {/* Mockup Page */}
       <MockupPage />
 
-      {/* Services */}
-      <ServicesSection />
+      {/* Service optional */}
+      
       
       {/*Pricing */}
       <PricingSection />
-
-
-      {/* Potenzielles nächstes Feature ? */}
       
-
       {/* Projects */}
-      <section id="projects" className="px-6 pb-32 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
-          <div>
-            <h3 className="text-4xl md:text-5xl font-semibold tracking-tight">
-              Design Concepts
-            </h3>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[1, 2, 3].map((item) => (
-            <div
-              key={item}
-              className="rounded-[32px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl hover:scale-[1.02] transition duration-300"
-            >
-              <div className="h-64 bg-gradient-to-br from-white/10 to-white/5" />
-            </div>
-          ))}
-        </div>
-      </section>
+      <DesignConcepts />
 
       {/* CTA */}
      <CTA_End />
