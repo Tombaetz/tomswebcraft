@@ -1,4 +1,6 @@
 import FitnessConcept from "./Designs/FitnessConcept";
+import KaffeeConcept from "./Designs/kaffeeConcept";
+
 
 export default function DesignConcepts() {
   return (
@@ -42,6 +44,8 @@ export default function DesignConcepts() {
           <RestaurantConcept />
         
         */}
+
+        <KaffeeConcept />
 
       </div>
 
