@@ -276,20 +276,6 @@ export default function FitnessConcept() {
                 `}
               />
 
-              <div
-                className="
-                  absolute
-                  inset-0
-                  rounded-full
-                  opacity-0
-                  group-hover/button:opacity-100
-                  transition
-                  duration-500
-                  bg-white/5
-                  blur-xl
-                "
-              />
-
             </button>
 
           </div>
@@ -326,18 +312,18 @@ export default function FitnessConcept() {
             className="overflow-hidden"
           >
 
-            <div className="px-5 sm:px-6 md:px-10 pb-24 pt-10 space-y-24 bg-[#171717]">
+            <div className="px-4 sm:px-6 md:px-10 pb-24 pt-10 space-y-24 bg-[#171717]">
 
               {/* INFO */}
-              <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+              <div className="grid lg:grid-cols-2 gap-5 md:gap-8">
 
                 <div
                   className="
-                    rounded-[34px]
+                    rounded-[30px]
                     border
                     border-white/10
                     bg-[#202020]
-                    p-7
+                    p-6
                     sm:p-8
                     md:p-12
                   "
@@ -366,11 +352,11 @@ export default function FitnessConcept() {
 
                 <div
                   className="
-                    rounded-[34px]
+                    rounded-[30px]
                     border
                     border-white/10
                     bg-[#202020]
-                    p-7
+                    p-6
                     sm:p-8
                     md:p-12
                     flex
@@ -407,16 +393,13 @@ export default function FitnessConcept() {
                 <div
                   className="
                     flex
-                    gap-5
+                    gap-4
                     overflow-x-auto
                     pb-4
 
                     snap-x
                     snap-mandatory
                     scroll-smooth
-
-                    cursor-grab
-                    active:cursor-grabbing
 
                     [scrollbar-width:none]
                     [&::-webkit-scrollbar]:hidden
@@ -426,19 +409,20 @@ export default function FitnessConcept() {
                   {features.map((feature) => (
                     <motion.div
                       whileHover={{
-                        y: -6,
+                        y: -4,
                       }}
                       transition={{
-                        duration: 0.4,
+                        duration: 0.35,
                       }}
                       key={feature.title}
                       className="
-                        w-[82vw]
-                        sm:w-[420px]
+                        w-[72vw]
+                        sm:w-[380px]
+                        md:w-[420px]
 
                         snap-center
 
-                        rounded-[34px]
+                        rounded-[30px]
                         overflow-hidden
 
                         border
@@ -454,8 +438,8 @@ export default function FitnessConcept() {
                       <div
                         className={`
                           relative
-                          h-[240px]
-                          sm:h-[320px]
+                          h-[220px]
+                          sm:h-[300px]
 
                           overflow-hidden
 
@@ -490,8 +474,8 @@ export default function FitnessConcept() {
                             relative
                             z-10
 
-                            text-[72px]
-                            sm:text-[140px]
+                            text-[64px]
+                            sm:text-[120px]
 
                             select-none
 
@@ -507,9 +491,9 @@ export default function FitnessConcept() {
                       </div>
 
                       {/* TEXT */}
-                      <div className="p-6 sm:p-7">
+                      <div className="p-5 sm:p-7">
 
-                        <h4 className="text-xl sm:text-2xl font-semibold text-white mb-3 break-words">
+                        <h4 className="text-lg sm:text-2xl font-semibold text-white mb-3 break-words">
                           {feature.title}
                         </h4>
 
@@ -541,24 +525,24 @@ export default function FitnessConcept() {
 
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-5">
 
                   {pricing.map((item) => (
                     <motion.div
                       whileHover={{
-                        y: -8,
+                        y: -6,
                         scale: 1.01,
                       }}
                       transition={{
-                        duration: 0.45,
+                        duration: 0.4,
                       }}
                       key={item.title}
                       className="
-                        rounded-[34px]
+                        rounded-[30px]
                         border
                         border-white/10
                         bg-[#202020]
-                        p-7
+                        p-6
                         sm:p-8
                       "
                     >
@@ -567,7 +551,7 @@ export default function FitnessConcept() {
                         {item.title}
                       </h4>
 
-                      <p className="text-5xl sm:text-6xl font-semibold tracking-tight text-white mb-8 break-words">
+                      <p className="text-4xl sm:text-6xl font-semibold tracking-tight text-white mb-8 break-words">
                         {item.price}
                       </p>
 
