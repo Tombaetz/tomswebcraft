@@ -301,7 +301,7 @@ export default function MockupPage() {
       </h3>
 
       <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-2xl">
-        Ich heiße Tom , komme aus Erfurt und brenne für modernes,
+        Ich heiße Tom , komme aus Erfurt, studiere Angewandte Informatik an der FH Erfurt und brenne für modernes,
         organisches Design. Mein Fokus liegt darauf, digitale Oberflächen
         zu entwickeln, die sich natürlich anfühlen und individuelle
         Visionen klar und hochwertig in die Realität übersetzen.

@@ -6,12 +6,27 @@ import {
   useTransform,
 } from "framer-motion";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const text = "Moderne Websites.";
 
 export default function HeroHeadline() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () =>
+      window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const { scrollY } = useScroll();
 
@@ -79,11 +94,27 @@ export default function HeroHeadline() {
                 damping: 18,
                 mass: 0.8,
               }}
-              className="
+              className={`
                 inline-block
                 cursor-default
                 will-change-transform
-              "
+
+                ${
+                  isMobile
+                    ? "translate-y-[calc(var(--scroll)*1px)]"
+                    : ""
+                }
+              `}
+              style={
+                isMobile
+                  ? {
+                      transform: `translateY(${
+                        scrollY.get() *
+                        (index * -0.015)
+                      }px)`,
+                    }
+                  : {}
+              }
             >
               {char === " " ? "\u00A0" : char}
             </motion.span>
