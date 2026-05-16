@@ -85,10 +85,9 @@ export default function FitnessConcept() {
     >
 
       {/* PREVIEW */}
-
       <div className="relative min-h-[620px] overflow-hidden group">
 
-        {/* IMAGE */}
+        {/* HERO IMAGE */}
         <motion.img
           style={{
             scale: heroScale,
@@ -112,7 +111,6 @@ export default function FitnessConcept() {
           className="
             absolute
             inset-0
-
             bg-gradient-to-b
             from-black/10
             via-black/30
@@ -125,13 +123,10 @@ export default function FitnessConcept() {
           className="
             absolute
             inset-0
-
             opacity-0
             group-hover:opacity-100
-
             transition
             duration-700
-
             bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)]
           "
         />
@@ -141,13 +136,10 @@ export default function FitnessConcept() {
           className="
             relative
             z-10
-
             h-full
-
             flex
             flex-col
             justify-between
-
             p-6
             sm:p-8
             md:p-12
@@ -182,20 +174,14 @@ export default function FitnessConcept() {
                     className="
                       px-5
                       py-2.5
-
                       rounded-full
-
                       border
                       border-white/10
-
                       bg-white/[0.04]
-
                       text-sm
                       text-white/75
-
                       transition-all
                       duration-500
-
                       hover:bg-white
                       hover:text-black
                       hover:scale-[1.03]
@@ -222,13 +208,10 @@ export default function FitnessConcept() {
                   sm:text-5xl
                   md:text-7xl
                   lg:text-8xl
-
                   font-semibold
                   tracking-tight
                   leading-[0.95]
-
                   text-white
-
                   break-words
                 "
               >
@@ -241,15 +224,11 @@ export default function FitnessConcept() {
                 className="
                   mt-6
                   sm:mt-8
-
                   text-white/60
-
                   text-base
                   sm:text-lg
                   md:text-xl
-
                   leading-relaxed
-
                   max-w-2xl
                 "
               >
@@ -270,24 +249,17 @@ export default function FitnessConcept() {
               className="
                 group/button
                 relative
-
                 flex
                 items-center
                 justify-center
-
                 w-14
                 h-14
-
                 rounded-full
-
                 border
                 border-white/10
-
                 bg-white/[0.03]
-
                 transition-all
                 duration-500
-
                 hover:border-white/20
                 hover:bg-white/[0.06]
               "
@@ -298,10 +270,8 @@ export default function FitnessConcept() {
                   w-5
                   h-5
                   text-white/55
-
                   transition-all
                   duration-500
-
                   ${isOpen ? "rotate-180" : ""}
                 `}
               />
@@ -310,15 +280,11 @@ export default function FitnessConcept() {
                 className="
                   absolute
                   inset-0
-
                   rounded-full
-
                   opacity-0
                   group-hover/button:opacity-100
-
                   transition
                   duration-500
-
                   bg-white/5
                   blur-xl
                 "
@@ -333,7 +299,6 @@ export default function FitnessConcept() {
       </div>
 
       {/* EXPANDED */}
-
       <AnimatePresence>
 
         {isOpen && (
@@ -372,7 +337,6 @@ export default function FitnessConcept() {
                     border
                     border-white/10
                     bg-[#202020]
-
                     p-7
                     sm:p-8
                     md:p-12
@@ -388,13 +352,10 @@ export default function FitnessConcept() {
                       text-2xl
                       sm:text-3xl
                       md:text-5xl
-
                       font-semibold
                       tracking-tight
                       leading-tight
-
                       text-white
-
                       break-words
                     "
                   >
@@ -409,11 +370,9 @@ export default function FitnessConcept() {
                     border
                     border-white/10
                     bg-[#202020]
-
                     p-7
                     sm:p-8
                     md:p-12
-
                     flex
                     items-end
                   "
@@ -474,8 +433,8 @@ export default function FitnessConcept() {
                       }}
                       key={feature.title}
                       className="
-                        min-w-[85%]
-                        sm:min-w-[420px]
+                        w-[82vw]
+                        sm:w-[420px]
 
                         snap-center
 
@@ -491,60 +450,63 @@ export default function FitnessConcept() {
                       "
                     >
 
+                      {/* EMOJI AREA */}
                       <div
-  className={`
-    relative
-    h-[320px]
-    overflow-hidden
+                        className={`
+                          relative
+                          h-[240px]
+                          sm:h-[320px]
 
-    flex
-    items-center
-    justify-center
+                          overflow-hidden
 
-    bg-gradient-to-br
-    ${feature.bg}
-  `}
->
+                          flex
+                          items-center
+                          justify-center
 
-  {/* LIGHT */}
-  <div
-    className="
-      absolute
-      inset-0
+                          bg-gradient-to-br
+                          ${feature.bg}
+                        `}
+                      >
 
-      bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)]
-    "
-  />
+                        {/* LIGHT */}
+                        <div
+                          className="
+                            absolute
+                            inset-0
+                            bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)]
+                          "
+                        />
 
-  {/* EMOJI */}
-  <motion.div
-    whileHover={{
-      scale: 1.08,
-      rotate: -3,
-    }}
-    transition={{
-      duration: 0.45,
-    }}
-    className="
-      relative
-      z-10
+                        {/* EMOJI */}
+                        <motion.div
+                          whileHover={{
+                            scale: 1.08,
+                            rotate: -3,
+                          }}
+                          transition={{
+                            duration: 0.45,
+                          }}
+                          className="
+                            relative
+                            z-10
 
-      text-[110px]
-      sm:text-[140px]
+                            text-[72px]
+                            sm:text-[140px]
 
-      select-none
+                            select-none
 
-      drop-shadow-[0_0_30px_rgba(255,255,255,0.12)]
-    "
-  >
-    {feature.emoji}
-  </motion.div>
+                            drop-shadow-[0_0_30px_rgba(255,255,255,0.12)]
+                          "
+                        >
+                          {feature.emoji}
+                        </motion.div>
 
-  {/* OVERLAY */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        {/* OVERLAY */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-</div>
+                      </div>
 
+                      {/* TEXT */}
                       <div className="p-6 sm:p-7">
 
                         <h4 className="text-xl sm:text-2xl font-semibold text-white mb-3 break-words">
@@ -593,12 +555,9 @@ export default function FitnessConcept() {
                       key={item.title}
                       className="
                         rounded-[34px]
-
                         border
                         border-white/10
-
                         bg-[#202020]
-
                         p-7
                         sm:p-8
                       "
