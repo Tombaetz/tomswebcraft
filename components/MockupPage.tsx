@@ -182,73 +182,136 @@ export default function MockupPage() {
             </InteractiveSection>
 
             {/* SERVICES */}
-            <InteractiveSection
-              id="services"
-              active={active}
-              setActive={setActive}
-              typedText={typedText}
-            >
+        {/* SERVICES */}
+<InteractiveSection
+  id="services"
+  active={active}
+  setActive={setActive}
+  typedText={typedText}
+>
 
-              <div className="grid md:grid-cols-3 gap-4">
+  <div className="grid md:grid-cols-3 gap-4">
 
-                {[
-                  "Mobile Optimierung",
-                  "Moderne Oberflächen",
-                  "Schnelle Ladezeiten",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="
-                      rounded-[28px]
-                      border
-                      border-white/10
-                      bg-white/[0.03]
-                      p-6
-                      transition-all
-                      duration-500
-                      hover:bg-white/[0.05]
-                    "
-                  >
+    {[
+      {
+        title: "Mobile Optimierung",
+        emoji: "📱",
+      },
+      {
+        title: "Moderne Oberflächen",
+        emoji: "✨",
+      },
+      {
+        title: "Schnelle Ladezeiten",
+        emoji: "⚡",
+      },
+    ].map((item) => (
+      <div
+        key={item.title}
+        className="
+          rounded-[28px]
+          border
+          border-white/10
+          bg-white/[0.03]
+          p-6
+          transition-all
+          duration-500
+          hover:bg-white/[0.05]
+        "
+      >
 
-                    <div className="h-11 w-11 rounded-2xl bg-white/[0.06] mb-5" />
+        {/* EMOJI ICON */}
+        <div
+          className="
+            h-14
+            w-14
 
-                    <h3 className="text-white/80 text-sm font-medium tracking-tight">
-                      {item}
-                    </h3>
+            rounded-2xl
 
-                  </div>
-                ))}
-              </div>
+            bg-white/[0.05]
 
-            </InteractiveSection>
+            border
+            border-white/10
 
-            {/* ABOUT */}
-            <InteractiveSection
-              id="about"
-              active={active}
-              setActive={setActive}
-              typedText={typedText}
-            >
+            flex
+            items-center
+            justify-center
 
-              <div className="flex flex-col md:flex-row gap-6 md:items-center">
+            mb-5
 
-                <div className="w-20 h-20 rounded-full bg-white/[0.05] border border-white/10" />
+            text-2xl
 
-                <div className="space-y-3">
+            shadow-[0_0_30px_rgba(255,255,255,0.03)]
+          "
+        >
+          {item.emoji}
+        </div>
 
-                  <h3 className="text-white text-xl font-medium tracking-tight">
-                    Über mich
-                  </h3>
+        <h3 className="text-white/80 text-sm font-medium tracking-tight">
+          {item.title}
+        </h3>
 
-                  <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-2xl">
-                    Ich heiße Tom Bätz, komme aus Erfurt und brenne für modernes, organisches Design. 
-                    Mein Fokus liegt darauf, digitale Oberflächen zu entwickeln, die sich natürlich anfühlen und individuelle Visionen klar und hochwertig in die Realität übersetzen.
-                  </p>
+      </div>
+    ))}
+  </div>
 
-                </div>
-              </div>
+</InteractiveSection>
 
-            </InteractiveSection>
+{/* ABOUT */}
+<InteractiveSection
+  id="about"
+  active={active}
+  setActive={setActive}
+  typedText={typedText}
+>
+
+  <div className="flex flex-col md:flex-row gap-6 md:items-center">
+
+    {/* EMOJI */}
+    <div
+      className="
+        w-20
+        h-20
+
+        rounded-full
+
+        bg-white/[0.05]
+
+        border
+        border-white/10
+
+        flex
+        items-center
+        justify-center
+
+        text-3xl
+
+        shadow-[0_0_30px_rgba(255,255,255,0.03)]
+
+        shrink-0
+      "
+    >
+      🧠
+    </div>
+
+    <div className="space-y-3">
+
+      <h3 className="text-white text-xl font-medium tracking-tight">
+        Über mich
+      </h3>
+
+      <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-2xl">
+        Ich heiße Tom , komme aus Erfurt und brenne für modernes,
+        organisches Design. Mein Fokus liegt darauf, digitale Oberflächen
+        zu entwickeln, die sich natürlich anfühlen und individuelle
+        Visionen klar und hochwertig in die Realität übersetzen.
+      </p>
+
+    </div>
+
+  </div>
+
+</InteractiveSection>
 
             {/* FOOTER */}
             <InteractiveSection

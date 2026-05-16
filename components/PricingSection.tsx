@@ -3,42 +3,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-const pricing = [
-  {
-    title: "Starter",
-    price: "€299",
-    features: [
-      "Moderne One-Page Website",
-      "Mobile Optimierung",
-      "Klare und ruhige Nutzerführung",
-      "Kontaktmöglichkeit integriert",
-    ],
-  },
-  {
-    title: "Business",
-    price: "€699",
-    features: [
-      "Mehrere Unterseiten",
-      "Individuelles modernes Design",
-      "Optimierte Nutzererfahrung",
-      "Schnelle Ladezeiten",
-    ],
-  },
-  {
-    title: "Premium",
-    price: "€1299",
-    features: [
-      "Komplett individuelle Experience",
-      "Erweiterte Animationen",
-      "Premium Design System",
-      "Starke digitale Markenwirkung",
-    ],
-  },
-];
-
 export default function PricingSection() {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const [pricingOpen, setPricingOpen] = useState(false);
 
   return (
     <section className="px-6 pb-40 max-w-7xl mx-auto text-white">
@@ -51,132 +18,141 @@ export default function PricingSection() {
         </p>
 
         <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
-          Transparent. Klar. Fair.
+          Individuell. Klar. Fair.
         </h2>
 
       </div>
 
-      {/* PRICING */}
-      <div className="grid md:grid-cols-3 gap-6 items-start">
+      {/* MAIN PRICING CARD */}
+      <motion.div
+        layout
+        onHoverStart={() => setPricingOpen(true)}
+        onHoverEnd={() => setPricingOpen(false)}
+        onClick={() => setPricingOpen(!pricingOpen)}
+        transition={{
+          layout: {
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        }}
+        className={`
+          relative
+          rounded-[44px]
+          border
+          overflow-hidden
+          cursor-pointer
+          backdrop-blur-3xl
+          transition-all
+          duration-500
 
-        {pricing.map((plan, index) => {
+          ${
+            pricingOpen
+              ? "border-white/20 bg-white/[0.08] shadow-[0_0_80px_rgba(255,255,255,0.06)]"
+              : "border-white/10 bg-white/[0.04] hover:bg-white/[0.06]"
+          }
+        `}
+      >
 
-          const isActive = activeCard === index;
+        {/* GLOW */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
 
-          return (
-            <motion.div
-              key={plan.title}
-              layout
-              onHoverStart={() => setActiveCard(index)}
-              onHoverEnd={() => setActiveCard(null)}
-              onClick={() =>
-                setActiveCard(isActive ? null : index)
-              }
-              transition={{
-                layout: {
-                  duration: 0.7,
+        <div className="relative z-10 p-8 md:p-12">
+
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+
+            {/* LEFT */}
+            <div className="max-w-3xl">
+
+              <p className="text-white/35 uppercase tracking-[0.25em] text-sm mb-5">
+                Projektbasierte Preisgestaltung
+              </p>
+
+              <h3 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight mb-8">
+                Jede Website entsteht individuell.
+              </h3>
+
+              <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-2xl">
+                Umfang, Design und Funktionen unterscheiden sich je nach
+                Unternehmen und Zielsetzung. In einem kurzen Gespräch
+                definieren wir gemeinsam den passenden Rahmen für das Projekt.
+              </p>
+
+            </div>
+
+            {/* RIGHT */}
+            <div className="lg:text-right shrink-0">
+
+              <p className="text-6xl md:text-7xl font-bold tracking-tight">
+                ab €300
+              </p>
+
+              <p className="text-white/40 mt-3 text-sm tracking-tight">
+                individuelle Projekte
+              </p>
+
+            </div>
+
+          </div>
+
+          <AnimatePresence>
+
+            {pricingOpen && (
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  height: 0,
+                  y: 12,
+                }}
+                animate={{
+                  opacity: 1,
+                  height: "auto",
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  height: 0,
+                  y: -12,
+                }}
+                transition={{
+                  duration: 0.55,
                   ease: [0.22, 1, 0.36, 1],
-                },
-              }}
-              className={`
-                relative
-                rounded-[42px]
-                border
-                overflow-hidden
-                cursor-pointer
-                p-8
-                backdrop-blur-3xl
-                transition-all
-                duration-500
-                self-start
+                }}
+                className="overflow-hidden"
+              >
 
-                ${
-                  isActive
-                    ? "border-white/20 bg-white/[0.08] shadow-[0_0_80px_rgba(255,255,255,0.06)]"
-                    : "border-white/10 bg-white/[0.04] hover:bg-white/[0.06]"
-                }
-              `}
-            >
+                <div className="pt-10 mt-10 border-t border-white/10 grid md:grid-cols-2 gap-6">
 
-              {/* Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+                  <div className="text-white/60 leading-relaxed">
+                    Ziel ist keine überladene Standardlösung,
+                    sondern eine moderne digitale Oberfläche,
+                    die zur Marke, Zielgruppe und Atmosphäre
+                    des Unternehmens passt.
+                  </div>
 
-              <div className="relative z-10">
+                  <div className="space-y-4 text-white/55 text-sm">
 
-                <h3 className="text-3xl font-semibold mb-5 tracking-tight">
-                  {plan.title}
-                </h3>
+                    <div>Individuelle Design Konzepte</div>
 
-                <p className="text-5xl font-bold tracking-tight">
-                  {plan.price}
-                </p>
+                    <div>Mobile Optimierung</div>
 
-                <AnimatePresence>
+                    <div>Moderne Nutzerführung</div>
 
-                  {isActive && (
+                    <div>Persönliche Zusammenarbeit</div>
 
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        height: 0,
-                        y: 10,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        height: "auto",
-                        y: 0,
-                      }}
-                      exit={{
-                        opacity: 0,
-                        height: 0,
-                        y: -10,
-                      }}
-                      transition={{
-                        duration: 0.55,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                      className="overflow-hidden"
-                    >
+                  </div>
 
-                      <div className="pt-8 mt-8 border-t border-white/10 space-y-4">
+                </div>
 
-                        {plan.features.map((feature) => (
+              </motion.div>
 
-                          <motion.div
-                            key={feature}
-                            initial={{
-                              opacity: 0,
-                              y: 6,
-                            }}
-                            animate={{
-                              opacity: 1,
-                              y: 0,
-                            }}
-                            transition={{
-                              duration: 0.35,
-                            }}
-                            className="text-white/60 text-sm tracking-tight"
-                          >
-                            {feature}
-                          </motion.div>
+            )}
 
-                        ))}
+          </AnimatePresence>
 
-                      </div>
+        </div>
 
-                    </motion.div>
-
-                  )}
-
-                </AnimatePresence>
-
-              </div>
-
-            </motion.div>
-          );
-        })}
-
-      </div>
+      </motion.div>
 
       {/* SERVICE HEADER */}
       <div className="mt-24 mb-10 text-center">
@@ -243,7 +219,7 @@ export default function PricingSection() {
             <div className="md:text-right">
 
               <p className="text-6xl md:text-7xl font-bold tracking-tight">
-                €49,99
+                ab €49,99
               </p>
 
               <p className="text-white/40 mt-3 text-sm tracking-tight">
