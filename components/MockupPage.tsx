@@ -7,27 +7,27 @@ const sections = [
   {
     id: "navbar",
     explanation:
-      "Die Navigation soll ruhig, klar und selbstverständlich wirken. Nutzer sollen sich sofort orientieren können ohne nachdenken zu müssen. Gute Navigation fühlt sich fast unsichtbar an.",
+      "Navigation sollte sich selbstverständlich anfühlen. Klarheit reduziert mentale Reibung.",
   },
   {
     id: "hero",
     explanation:
-      "Die Hero Section erzeugt den ersten emotionalen Eindruck. Sie soll Vertrauen, Klarheit und moderne Qualität vermitteln bevor überhaupt gelesen wird.",
+      "Der erste Eindruck entscheidet. Ruhe schafft Vertrauen und digitale Qualität.",
   },
   {
     id: "services",
     explanation:
-      "Klare strukturierte Bereiche reduzieren mentale Überforderung und helfen Nutzern schneller zu verstehen welche Leistungen angeboten werden.",
+      "Klare Strukturen helfen Menschen schneller zu verstehen worum es geht.",
   },
   {
     id: "about",
     explanation:
-      "Persönliche Bereiche schaffen Vertrauen und geben der Website Charakter. Menschen möchten verstehen mit wem sie arbeiten.",
+      "Persönlichkeit schafft Vertrauen. Menschen möchten wissen mit wem sie arbeiten.",
   },
   {
     id: "footer",
     explanation:
-      "Selbst kleine Details wie Footer und Abschlussbereiche vermitteln Professionalität, Struktur und ein vollständiges Gesamtgefühl.",
+      "Auch kleine Details vermitteln Professionalität und Sorgfalt.",
   },
 ];
 
@@ -54,22 +54,24 @@ export default function MockupPage() {
       if (index > current.explanation.length) {
         clearInterval(interval);
       }
-    }, 16);
+    }, 14);
 
     return () => clearInterval(interval);
   }, [current]);
 
   return (
-    <section className="px-6 py-40 max-w-7xl mx-auto">
+    <section className="px-6 py-44 max-w-7xl mx-auto">
 
-      {/* Label */}
-      <div className="text-center mb-16">
-        <p className="text-white/30 uppercase tracking-[0.35em] text-sm">
+      {/* LABEL */}
+      <div className="text-center mb-20">
+
+        <p className="text-white/25 uppercase tracking-[0.35em] text-[11px]">
           Simple can be harder than complex
         </p>
+
       </div>
 
-      {/* Outer Container */}
+      {/* OUTER */}
       <motion.div
         layout
         transition={{
@@ -83,21 +85,22 @@ export default function MockupPage() {
           rounded-[56px]
           border
           border-white/10
+
           bg-gradient-to-br
-          from-white/[0.05]
-          to-white/[0.02]
-          backdrop-blur-3xl
-          shadow-[0_0_120px_rgba(255,255,255,0.03)]
+          from-white/[0.04]
+          to-white/[0.015]
+
           overflow-hidden
+
           p-4
           md:p-8
         "
       >
 
-        {/* Ambient Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
+        {/* AMBIENT */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
 
-        {/* Browser */}
+        {/* BROWSER */}
         <div
           className="
             relative
@@ -109,17 +112,18 @@ export default function MockupPage() {
           "
         >
 
-          {/* Browser Bar */}
-          <div className="flex items-center gap-2 px-6 py-5 border-b border-white/10 bg-white/[0.02]">
+          {/* TOP BAR */}
+          <div className="flex items-center gap-2 px-6 py-5 border-b border-white/10 bg-white/[0.015]">
 
             <div className="w-3 h-3 rounded-full bg-red-400/80" />
             <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
             <div className="w-3 h-3 rounded-full bg-green-400/80" />
 
             <div className="ml-6 h-3 w-40 rounded-full bg-white/10" />
+
           </div>
 
-          {/* Website */}
+          {/* WEBSITE */}
           <div className="p-5 md:p-8 space-y-5">
 
             {/* NAVBAR */}
@@ -135,22 +139,30 @@ export default function MockupPage() {
                 <div className="flex items-center gap-3">
 
                   <div className="flex items-end gap-1">
+
                     <div className="w-1.5 h-5 rounded-full bg-[#F3F4F6]" />
+
                     <div className="w-1.5 h-8 rounded-full bg-[#E9B44C]" />
+
                     <div className="w-1.5 h-5 rounded-full bg-[#F3F4F6]" />
+
                   </div>
 
                   <span className="text-white/80 text-sm tracking-tight">
                     TomWebCraft
                   </span>
+
                 </div>
 
-                <div className="hidden md:flex items-center gap-6 text-xs text-white/35">
+                <div className="hidden md:flex items-center gap-6 text-xs text-white/30">
+
                   <span>Services</span>
                   <span>Projects</span>
                   <span>About</span>
                   <span>Contact</span>
+
                 </div>
+
               </div>
 
             </InteractiveSection>
@@ -163,16 +175,24 @@ export default function MockupPage() {
               typedText={typedText}
             >
 
-              <div className="space-y-6">
+              <div className="space-y-8">
 
-                <div className="space-y-5">
+                <div className="space-y-8">
 
-                  <h2 className="text-2xl md:text-5xl font-semibold tracking-tight text-white max-w-3xl leading-tight">
-                    "Design als Schnittstelle zwischen Mensch und Bedürfnis"
+                  <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-white max-w-4xl leading-[1]">
+
+                    Design als Schnittstelle
+                    zwischen Mensch und Bedürfnis
+
                   </h2>
 
+                  <div className="h-px w-32 bg-gradient-to-r from-[#E9B44C]/60 to-transparent" />
+
                   <p className="text-white/45 text-sm md:text-lg max-w-2xl leading-relaxed">
-                    Digitale Oberflächen sollten sich nicht fremd anfühlen. 
+
+                    Digitale Oberflächen sollten sich ruhig,
+                    hochwertig und natürlich anfühlen.
+
                   </p>
 
                 </div>
@@ -182,136 +202,148 @@ export default function MockupPage() {
             </InteractiveSection>
 
             {/* SERVICES */}
-        {/* SERVICES */}
-<InteractiveSection
-  id="services"
-  active={active}
-  setActive={setActive}
-  typedText={typedText}
->
+            <InteractiveSection
+              id="services"
+              active={active}
+              setActive={setActive}
+              typedText={typedText}
+            >
 
-  <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-4">
 
-    {[
-      {
-        title: "Mobile Optimierung",
-        emoji: "📱",
-      },
-      {
-        title: "Moderne Oberflächen",
-        emoji: "✨",
-      },
-      {
-        title: "Schnelle Ladezeiten",
-        emoji: "⚡",
-      },
-    ].map((item) => (
-      <div
-        key={item.title}
-        className="
-          rounded-[28px]
-          border
-          border-white/10
-          bg-white/[0.03]
-          p-6
-          transition-all
-          duration-500
-          hover:bg-white/[0.05]
-        "
-      >
+                {[
+                  {
+                    title: "Mobile Optimierung",
+                    emoji: "📱",
+                    featured: false,
+                  },
+                  {
+                    title: "Moderne Oberflächen",
+                    emoji: "✦",
+                    featured: true,
+                  },
+                  {
+                    title: "Schnelle Ladezeiten",
+                    emoji: "⚡",
+                    featured: false,
+                  },
+                ].map((item) => (
+                  <motion.div
+                    key={item.title}
+                    whileHover={{
+                      y: -4,
+                    }}
+                    transition={{
+                      duration: 0.35,
+                    }}
+                    className={`
+                      rounded-[28px]
+                      border
+                      p-6
 
-        {/* EMOJI ICON */}
-        <div
-          className="
-            h-14
-            w-14
+                      transition-all
+                      duration-500
 
-            rounded-2xl
+                      ${
+                        item.featured
+                          ? "border-white/15 bg-white/[0.05] md:scale-[1.03]"
+                          : "border-white/10 bg-white/[0.03]"
+                      }
+                    `}
+                  >
 
-            bg-white/[0.05]
+                    {/* ICON */}
+                    <div
+                      className="
+                        h-14
+                        w-14
 
-            border
-            border-white/10
+                        rounded-2xl
 
-            flex
-            items-center
-            justify-center
+                        bg-white/[0.04]
 
-            mb-5
+                        border
+                        border-white/10
 
-            text-2xl
+                        flex
+                        items-center
+                        justify-center
 
-            shadow-[0_0_30px_rgba(255,255,255,0.03)]
-          "
-        >
-          {item.emoji}
-        </div>
+                        mb-5
 
-        <h3 className="text-white/80 text-sm font-medium tracking-tight">
-          {item.title}
-        </h3>
+                        text-2xl
+                      "
+                    >
+                      {item.emoji}
+                    </div>
 
-      </div>
-    ))}
-  </div>
+                    <h3 className="text-white/80 text-sm font-medium tracking-tight">
+                      {item.title}
+                    </h3>
 
-</InteractiveSection>
+                  </motion.div>
+                ))}
 
-{/* ABOUT */}
-<InteractiveSection
-  id="about"
-  active={active}
-  setActive={setActive}
-  typedText={typedText}
->
+              </div>
 
-  <div className="flex flex-col md:flex-row gap-6 md:items-center">
+            </InteractiveSection>
 
-    {/* EMOJI */}
-    <div
-      className="
-        w-20
-        h-20
+            {/* ABOUT */}
+            <InteractiveSection
+              id="about"
+              active={active}
+              setActive={setActive}
+              typedText={typedText}
+            >
 
-        rounded-full
+              <div className="flex flex-col md:flex-row gap-6 md:items-center">
 
-        bg-white/[0.05]
+                {/* ICON */}
+                <div
+                  className="
+                    w-20
+                    h-20
 
-        border
-        border-white/10
+                    rounded-full
 
-        flex
-        items-center
-        justify-center
+                    bg-white/[0.04]
 
-        text-3xl
+                    border
+                    border-white/10
 
-        shadow-[0_0_30px_rgba(255,255,255,0.03)]
+                    flex
+                    items-center
+                    justify-center
 
-        shrink-0
-      "
-    >
-      🧠
-    </div>
+                    text-3xl
 
-    <div className="space-y-3">
+                    shrink-0
+                  "
+                >
+                  ✦
+                </div>
 
-      <h3 className="text-white text-xl font-medium tracking-tight">
-        Über mich
-      </h3>
+                <div className="space-y-3">
 
-      <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-2xl">
-        Ich heiße Tom , komme aus Erfurt, studiere Angewandte Informatik an der FH Erfurt und brenne für modernes,
-        organisches Design. Mein Fokus liegt darauf, digitale Oberflächen
-        zu entwickeln, die sich natürlich anfühlen und individuelle
-        Visionen klar und hochwertig in die Realität übersetzen.
-      </p>
+                  <h3 className="text-white text-xl font-medium tracking-tight">
+                    Über mich
+                  </h3>
 
-    </div>
+                  <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-2xl">
 
-  </div>
+                    Ich heiße Tom, komme aus Erfurt und studiere
+                    Angewandte Informatik an der FH Erfurt.
+                    Mein Fokus liegt darauf digitale Oberflächen
+                    zu entwickeln, die sich natürlich,
+                    modern und hochwertig anfühlen.
 
-</InteractiveSection>
+                  </p>
+
+                </div>
+
+              </div>
+
+            </InteractiveSection>
 
             {/* FOOTER */}
             <InteractiveSection
@@ -323,14 +355,16 @@ export default function MockupPage() {
 
               <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
 
-                <div className="text-white/30 text-sm">
+                <div className="text-white/25 text-[11px] uppercase tracking-[0.18em]">
                   © 2026 TomWebCraft
                 </div>
 
-                <div className="flex gap-5 text-xs text-white/25">
+                <div className="flex gap-5 text-[11px] uppercase tracking-[0.18em] text-white/20">
+
                   <span>Impressum</span>
                   <span>Datenschutz</span>
                   <span>Kontakt</span>
+
                 </div>
 
               </div>
@@ -372,14 +406,16 @@ function InteractiveSection({
         border
         overflow-hidden
         cursor-pointer
+
         transition-all
         duration-500
+
         p-6
         md:p-8
 
         ${
           isActive
-            ? "border-white/20 bg-white/[0.05] backdrop-blur-3xl shadow-[0_0_60px_rgba(255,255,255,0.03)] scale-[1.015]"
+            ? "border-white/20 bg-white/[0.045] scale-[1.01]"
             : "border-white/10 bg-white/[0.02] hover:bg-white/[0.03]"
         }
       `}
@@ -388,7 +424,9 @@ function InteractiveSection({
       {children}
 
       <AnimatePresence>
+
         {isActive && (
+
           <motion.div
             initial={{
               opacity: 0,
@@ -406,7 +444,7 @@ function InteractiveSection({
               y: -12,
             }}
             transition={{
-              duration: 0.65,
+              duration: 0.6,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="overflow-hidden"
@@ -414,14 +452,16 @@ function InteractiveSection({
 
             <div className="pt-6 border-t border-white/10 mt-6">
 
-              <p className="text-white/60 leading-relaxed text-sm md:text-base max-w-3xl">
+              <p className="text-white/55 leading-relaxed text-sm md:text-base max-w-2xl">
                 {typedText}
               </p>
 
             </div>
 
           </motion.div>
+
         )}
+
       </AnimatePresence>
 
     </motion.div>

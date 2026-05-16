@@ -44,14 +44,7 @@ export default function TomWebCraftLanding() {
       </header>
 
       <AnimatedLogo />
-
-
-      {/* Hero */}
-      <section className="px-6 pt-40 pb-32 max-w-7xl mx-auto">
-
-  <HeroHeadline />
-
-</section>
+      
 
       {/* Mockup Page */}
       <MockupPage />
