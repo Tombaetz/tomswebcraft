@@ -3,459 +3,276 @@
 import {
   AnimatePresence,
   motion,
-  useScroll,
-  useTransform,
 } from "framer-motion";
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const products = [
+const features = [
   {
-    title: "Cappuccino",
-    description: "Sanfter Milchschaum trifft auf kräftigen Espresso.",
+    title: "Atmosphäre",
+    text: "Warme Farben, ruhige Kontraste und organische Oberflächen erzeugen ein gemütliches digitales Café Gefühl.",
     emoji: "☕",
   },
   {
-    title: "Cold Brew",
-    description: "Langsam extrahiert für einen ruhigen, klaren Geschmack.",
-    emoji: "🧊",
+    title: "Gemütlichkeit",
+    text: "Das Design soll sich langsam, ruhig und natürlich anfühlen statt technisch oder steril.",
+    emoji: "🪵",
   },
   {
-    title: "Signature Roast",
-    description: "Warme Röstaromen mit leichter Schokoladennote.",
-    emoji: "🌰",
-  },
-];
-
-const team = [
-  {
-    name: "Lena",
-    role: "Barista",
+    title: "Momente",
+    text: "Der Fokus liegt auf echten Gesprächen, kleinen Momenten und emotionaler Wiedererkennung.",
     emoji: "✨",
   },
-  {
-    name: "Noah",
-    role: "Roastery",
-    emoji: "☕",
-  },
-  {
-    name: "Mila",
-    role: "Service",
-    emoji: "🤎",
-  },
 ];
 
-export default function KaffeeConcept() {
+export default function kaffeConcept() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { scrollYProgress } = useScroll();
-
-  const heroScale = useTransform(
-    scrollYProgress,
-    [0, 0.25],
-    [1, 1.06]
-  );
-
   return (
-    <motion.div
+    <motion.section
       layout
       transition={{
         layout: {
-          duration: 0.9,
+          duration: 1,
           ease: [0.22, 1, 0.36, 1],
         },
       }}
       className="
+        relative
         overflow-hidden
-        rounded-[42px]
+
+        rounded-[48px]
+
         border
-        border-white/10
-        bg-[#0F0B09]
+        border-[#D7B28A]/10
+
+        bg-[#120D0B]
+
+        shadow-[0_0_120px_rgba(0,0,0,0.45)]
       "
     >
 
-      {/* HERO */}
-      <div className="relative min-h-[720px] overflow-hidden group">
+      {/* BACKGROUND */}
+      {/* BACKGROUND */}
+<div
+  className="
+    absolute
+    inset-0
 
-        {/* BG */}
-        <motion.div
-          style={{
-            scale: heroScale,
-          }}
+    bg-[radial-gradient(circle_at_top,rgba(255,220,180,0.10),transparent_55%)]
+  "
+/>
+
+<div
+  className="
+    absolute
+    inset-0
+
+    bg-gradient-to-b
+    from-[#120D0A]
+    via-[#2A1B14]
+    to-[#F3ECE4]
+  "
+/>
+
+{/* WARM VIGNETTE */}
+<div
+  className="
+    absolute
+    inset-0
+
+    bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.18)_100%)]
+  "
+/>
+      {/* CONTENT */}
+      <div
+        className="
+          relative
+          z-10
+
+          px-6
+          sm:px-10
+          md:px-16
+
+          pt-10
+          md:pt-14
+
+          pb-24
+        "
+      >
+
+        {/* TOP */}
+        <div className="flex justify-end mb-20">
+
+          <button
+            className="
+              px-6
+              py-3
+
+              rounded-full
+
+              border
+              border-[#D7B28A]/10
+
+              bg-white/[0.03]
+
+              text-[#F3ECE4]/70
+
+              transition-all
+              duration-500
+
+              hover:bg-white/[0.06]
+            "
+          >
+            Kontakt
+          </button>
+
+        </div>
+
+        {/* LABEL */}
+        <p
           className="
-            absolute
-            inset-0
+            text-[#F3ECE4]/35
 
-            bg-[radial-gradient(circle_at_center,rgba(120,72,32,0.35),transparent_60%)]
+            uppercase
+            tracking-[0.35em]
 
-            transition
-            duration-700
+            text-[11px]
+
+            mb-10
           "
-        />
+        >
+          Kaffee Concept
+        </p>
 
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/30" />
-
-        {/* CAPPUCCINO GRADIENT */}
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-gradient-to-b
-            from-[#0F0B09]
-            via-[#1B140F]
-            to-[#F6F1EA]
-          "
-        />
-
-        {/* CONTENT */}
+        {/* HERO */}
         <div
           className="
             relative
-            z-10
 
-            min-h-[720px]
+            min-h-[320px]
+            md:min-h-[420px]
 
-            flex
-            flex-col
-            justify-between
-
-            p-6
-            sm:p-8
-            md:p-12
+            overflow-hidden
           "
         >
 
-          {/* TOP */}
-          <div>
+          {/* HEADLINE */}
+          <motion.div
+            animate={{
+              opacity: isOpen ? 0 : 1,
+              x: isOpen ? -180 : 0,
+            }}
+            transition={{
+              duration: 1.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              absolute
+              left-0
+              top-0
+              z-10
+            "
+          >
 
-            {/* NAV */}
-            <div className="flex items-center justify-between mb-24">
+            <h1
+              className="
+                text-[#F3ECE4]
 
-              <div className="flex items-center gap-3">
+                text-5xl
+                sm:text-6xl
+                md:text-8xl
 
-                <div
-                  className="
-                    w-10
-                    h-10
+                leading-[0.92]
+                tracking-tight
+                font-semibold
+              "
+            >
+              Coffee is
+              <br />
+              more than
+              <br />
+              a drink.
+            </h1>
 
-                    rounded-full
+          </motion.div>
 
-                    bg-[#F6F1EA]/10
+          {/* BRAND */}
+          <motion.div
+            animate={{
+              opacity: isOpen ? 1 : 0,
+              x: isOpen ? 0 : 120,
+            }}
+            transition={{
+              duration: 1.2,
+              delay: isOpen ? 0.25 : 0,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              absolute
+              right-8
+              md:right-16
+              top-10
+              z-10
+            "
+          >
 
-                    border
-                    border-white/10
+            <div className="flex items-center gap-5">
 
-                    flex
-                    items-center
-                    justify-center
-                  "
-                >
-                  ☕
-                </div>
-
-                <span className="text-[#F6F1EA] tracking-tight text-sm sm:text-base">
-                  NOIR CAFÉ
-                </span>
-
-              </div>
-
-              <button
+              {/* LOGO */}
+              <div
                 className="
-                  px-5
-                  py-2.5
+                  w-14
+                  h-14
 
                   rounded-full
 
                   border
-                  border-white/10
+                  border-[#D7B28A]/20
 
-                  bg-white/[0.04]
+                  bg-[#2A1D17]
 
-                  text-[#F6F1EA]/70
-                  text-sm
-
-                  transition-all
-                  duration-500
-
-                  hover:bg-white
-                  hover:text-black
+                  flex
+                  items-center
+                  justify-center
                 "
               >
-                Kontakt
-              </button>
 
-            </div>
+                <div
+                  className="
+                    w-6
+                    h-6
 
-            {/* HERO TEXT */}
-            <div className="max-w-4xl">
+                    rounded-full
 
-              <p className="text-[#F6F1EA]/40 uppercase tracking-[0.35em] text-[11px] mb-6">
-                Kaffee Concept
-              </p>
-
-              <h1
-                className="
-                  text-5xl
-                  sm:text-6xl
-                  md:text-8xl
-
-                  leading-[0.92]
-                  tracking-tight
-                  font-semibold
-
-                  text-[#F6F1EA]
-                "
-              >
-                Coffee is
-                <br />
-                more than
-                <br />
-                a drink.
-              </h1>
-
-              <div className="h-px w-32 bg-gradient-to-r from-[#D7B28A] to-transparent mt-10 mb-10" />
-
-              <p
-                className="
-                  max-w-2xl
-
-                  text-[#F6F1EA]/60
-
-                  text-base
-                  md:text-xl
-
-                  leading-relaxed
-                "
-              >
-                Ein ruhiger Ort für Gespräche, Wärme und
-                hochwertige Momente. Digitale Atmosphäre
-                übersetzt in ein minimalistisches Café Konzept.
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* BUTTON */}
-          <div className="flex justify-center pt-16">
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="
-                flex
-                items-center
-                justify-center
-
-                w-14
-                h-14
-
-                rounded-full
-
-                border
-                border-black/10
-
-                bg-[#F6F1EA]/40
-
-                backdrop-blur-xl
-
-                transition-all
-                duration-500
-
-                hover:scale-[1.04]
-              "
-            >
-
-              <ChevronDown
-                className={`
-                  w-5
-                  h-5
-                  text-[#0F0B09]
-
-                  transition-all
-                  duration-500
-
-                  ${isOpen ? "rotate-180" : ""}
-                `}
-              />
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* EXPANDED */}
-      <AnimatePresence>
-
-        {isOpen && (
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              height: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              height: "auto",
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              height: 0,
-              y: -20,
-            }}
-            transition={{
-              duration: 0.9,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="overflow-hidden bg-[#F6F1EA]"
-          >
-
-            <div className="px-5 sm:px-8 md:px-12 py-24 space-y-28">
-
-              {/* PRODUCTS */}
-              <div>
-
-                <div className="mb-14">
-
-                  <p className="text-black/35 uppercase tracking-[0.35em] text-[11px] mb-4">
-                    Auswahl
-                  </p>
-
-                  <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-[#0F0B09]">
-                    Lieblingsprodukte.
-                  </h2>
-
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-
-                  {products.map((product) => (
-
-                    <motion.div
-                      key={product.title}
-                      whileHover={{
-                        y: -5,
-                      }}
-                      transition={{
-                        duration: 0.35,
-                      }}
-                      className="
-                        rounded-[34px]
-
-                        border
-                        border-black/5
-
-                        bg-white/60
-
-                        p-8
-
-                        transition-all
-                        duration-500
-
-                        hover:border-black/10
-                      "
-                    >
-
-                      <div className="text-5xl mb-8">
-                        {product.emoji}
-                      </div>
-
-                      <h3 className="text-2xl font-semibold tracking-tight text-[#0F0B09] mb-4">
-                        {product.title}
-                      </h3>
-
-                      <p className="text-black/50 leading-relaxed">
-                        {product.description}
-                      </p>
-
-                    </motion.div>
-
-                  ))}
-
-                </div>
+                    border
+                    border-[#F3ECE4]/60
+                  "
+                />
 
               </div>
 
-              {/* TEAM */}
               <div>
 
-                <div className="mb-14">
+                <p className="text-[#F3ECE4]/35 text-xs tracking-[0.3em] uppercase mb-1">
+                  Café
+                </p>
 
-                  <p className="text-black/35 uppercase tracking-[0.35em] text-[11px] mb-4">
-                    Menschen
-                  </p>
+                <h2
+                  className="
+                    text-[#F3ECE4]
 
-                  <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-[#0F0B09]">
-                    Das Team.
-                  </h2>
+                    text-4xl
+                    md:text-6xl
 
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-
-                  {team.map((member) => (
-
-                    <motion.div
-                      key={member.name}
-                      whileHover={{
-                        y: -4,
-                      }}
-                      transition={{
-                        duration: 0.35,
-                      }}
-                      className="
-                        rounded-[34px]
-
-                        border
-                        border-black/5
-
-                        bg-white/50
-
-                        p-8
-                      "
-                    >
-
-                      <div
-                        className="
-                          w-20
-                          h-20
-
-                          rounded-full
-
-                          bg-[#E7D8C7]
-
-                          flex
-                          items-center
-                          justify-center
-
-                          text-3xl
-
-                          mb-8
-                        "
-                      >
-                        {member.emoji}
-                      </div>
-
-                      <h3 className="text-2xl font-semibold tracking-tight text-[#0F0B09]">
-                        {member.name}
-                      </h3>
-
-                      <p className="text-black/45 mt-3">
-                        {member.role}
-                      </p>
-
-                    </motion.div>
-
-                  ))}
-
-                </div>
+                    font-semibold
+                    tracking-tight
+                    leading-none
+                  "
+                >
+                  Noir Café
+                </h2>
 
               </div>
 
@@ -463,10 +280,307 @@ export default function KaffeeConcept() {
 
           </motion.div>
 
-        )}
+          {/* COFFEE */}
+          <motion.div
+            animate={{
+              left: isOpen ? "0%" : "72%",
+              x: isOpen ? 0 : "-50%",
+            }}
+            transition={{
+              duration: 1.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              absolute
+              top-6
+              z-20
+            "
+          >
 
-      </AnimatePresence>
+            {/* STEAM */}
+            <motion.div
+              animate={{
+                y: [-2, -12, -2],
+                opacity: [0.2, 0.45, 0.2],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="
+                absolute
+                -top-10
+                left-1/2
+                -translate-x-1/2
 
-    </motion.div>
+                flex
+                gap-2
+              "
+            >
+
+              <div className="w-[2px] h-10 rounded-full bg-white/20 blur-[1px]" />
+              <div className="w-[2px] h-14 rounded-full bg-white/20 blur-[1px]" />
+              <div className="w-[2px] h-10 rounded-full bg-white/20 blur-[1px]" />
+
+            </motion.div>
+
+            {/* CUP */}
+            <div
+              className="
+                relative
+
+                w-[120px]
+                h-[120px]
+
+                sm:w-[150px]
+                sm:h-[150px]
+
+                md:w-[210px]
+                md:h-[210px]
+
+                rounded-full
+
+                bg-[#2A1D17]
+
+                border
+                border-[#D7B28A]/10
+
+                shadow-[0_30px_80px_rgba(0,0,0,0.4)]
+
+                flex
+                items-center
+                justify-center
+              "
+            >
+
+              <div
+                className="
+                  w-[90px]
+                  h-[90px]
+
+                  sm:w-[110px]
+                  sm:h-[110px]
+
+                  md:w-[160px]
+                  md:h-[160px]
+
+                  rounded-full
+
+                  bg-[radial-gradient(circle,#6B4632_0%,#3A241A_70%)]
+
+                  border
+                  border-black/20
+                "
+              />
+
+            </div>
+
+          </motion.div>
+
+        </div>
+
+        {/* DIVIDER */}
+        <motion.div
+          animate={{
+            opacity: isOpen ? 0 : 1,
+            y: isOpen ? 10 : 0,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
+          className="
+            h-px
+            w-32
+
+            mt-8
+            mb-10
+
+            bg-gradient-to-r
+            from-[#D7B28A]
+            to-transparent
+          "
+        />
+
+        {/* TEXT */}
+        <motion.p
+          animate={{
+            opacity: isOpen ? 0 : 1,
+            y: isOpen ? 10 : 0,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
+          className="
+            max-w-2xl
+
+            text-[#F3ECE4]/55
+
+            text-base
+            md:text-lg
+
+            leading-relaxed
+          "
+        >
+          Ein ruhiger Ort für Gespräche, Wärme und hochwertige
+          Momente. Digitale Atmosphäre übersetzt in ein
+          minimalistisches Café Konzept.
+        </motion.p>
+
+        {/* BUTTON */}
+        <div className="flex justify-center mt-20">
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="
+              flex
+              items-center
+              justify-center
+
+              w-16
+              h-16
+
+              rounded-full
+
+              border
+              border-[#D7B28A]/10
+
+              bg-white/[0.04]
+
+              text-[#F3ECE4]/70
+
+              transition-all
+              duration-500
+
+              hover:bg-white/[0.07]
+            "
+          >
+
+            <motion.div
+              animate={{
+                rotate: isOpen ? 180 : 0,
+              }}
+              transition={{
+                duration: 0.8,
+              }}
+            >
+              <ChevronDown className="w-5 h-5" />
+            </motion.div>
+
+          </button>
+
+        </div>
+
+        {/* EXPANDED */}
+        <AnimatePresence>
+
+          {isOpen && (
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+                y: -20,
+              }}
+              transition={{
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="overflow-hidden"
+            >
+
+              <div className="pt-24 grid md:grid-cols-3 gap-6">
+
+                {features.map((item) => (
+
+                  <motion.div
+                    key={item.title}
+                    whileHover={{
+                      y: -6,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                    }}
+                    className="
+                      rounded-[36px]
+
+                      border
+                      border-[#D7B28A]/10
+
+                      bg-white/[0.03]
+
+                      p-8
+                    "
+                  >
+
+                    <div
+                      className="
+                        w-16
+                        h-16
+
+                        rounded-2xl
+
+                        bg-white/[0.04]
+
+                        border
+                        border-white/10
+
+                        flex
+                        items-center
+                        justify-center
+
+                        text-3xl
+
+                        mb-8
+                      "
+                    >
+                      {item.emoji}
+                    </div>
+
+                    <h3
+                      className="
+                        text-[#F3ECE4]
+
+                        text-2xl
+
+                        font-semibold
+
+                        tracking-tight
+
+                        mb-4
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p className="text-[#F3ECE4]/55 leading-relaxed">
+                      {item.text}
+                    </p>
+
+                  </motion.div>
+
+                ))}
+
+              </div>
+
+            </motion.div>
+
+          )}
+
+        </AnimatePresence>
+
+      </div>
+
+    </motion.section>
   );
 }
