@@ -29,6 +29,10 @@ const features = [
 export default function kaffeConcept() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.innerWidth < 768;
+
   return (
     <motion.section
       layout
@@ -41,64 +45,54 @@ export default function kaffeConcept() {
       className="
         relative
         overflow-hidden
-
         rounded-[48px]
-
         border
         border-[#D7B28A]/10
-
         bg-[#120D0B]
-
         shadow-[0_0_120px_rgba(0,0,0,0.45)]
       "
     >
 
       {/* BACKGROUND */}
-      {/* BACKGROUND */}
-<div
-  className="
-    absolute
-    inset-0
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_top,rgba(255,220,180,0.10),transparent_55%)]
+        "
+      />
 
-    bg-[radial-gradient(circle_at_top,rgba(255,220,180,0.10),transparent_55%)]
-  "
-/>
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-b
+          from-[#120D0A]
+          via-[#2A1B14]
+          to-[#F3ECE4]
+        "
+      />
 
-<div
-  className="
-    absolute
-    inset-0
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.18)_100%)]
+        "
+      />
 
-    bg-gradient-to-b
-    from-[#120D0A]
-    via-[#2A1B14]
-    to-[#F3ECE4]
-  "
-/>
-
-{/* WARM VIGNETTE */}
-<div
-  className="
-    absolute
-    inset-0
-
-    bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.18)_100%)]
-  "
-/>
       {/* CONTENT */}
       <div
         className="
           relative
           z-10
-
           px-6
           sm:px-10
           md:px-16
-
           pt-10
           md:pt-14
-
-          pb-24
+          pb-40
+          md:pb-24
         "
       >
 
@@ -109,19 +103,13 @@ export default function kaffeConcept() {
             className="
               px-6
               py-3
-
               rounded-full
-
               border
               border-[#D7B28A]/10
-
               bg-white/[0.03]
-
               text-[#F3ECE4]/70
-
               transition-all
               duration-500
-
               hover:bg-white/[0.06]
             "
           >
@@ -134,12 +122,9 @@ export default function kaffeConcept() {
         <p
           className="
             text-[#F3ECE4]/35
-
             uppercase
             tracking-[0.35em]
-
             text-[11px]
-
             mb-10
           "
         >
@@ -150,10 +135,8 @@ export default function kaffeConcept() {
         <div
           className="
             relative
-
             min-h-[320px]
             md:min-h-[420px]
-
             overflow-hidden
           "
         >
@@ -179,11 +162,9 @@ export default function kaffeConcept() {
             <h1
               className="
                 text-[#F3ECE4]
-
-                text-5xl
-                sm:text-6xl
+                text-4xl
+                sm:text-5xl
                 md:text-8xl
-
                 leading-[0.92]
                 tracking-tight
                 font-semibold
@@ -211,41 +192,40 @@ export default function kaffeConcept() {
             }}
             className="
               absolute
-              right-8
+              right-4
               md:right-16
               top-10
               z-10
             "
           >
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3 md:gap-5">
 
               {/* LOGO */}
               <div
                 className="
-                  w-14
-                  h-14
-
+                  w-12
+                  h-12
+                  md:w-14
+                  md:h-14
                   rounded-full
-
                   border
                   border-[#D7B28A]/20
-
                   bg-[#2A1D17]
-
                   flex
                   items-center
                   justify-center
+                  shrink-0
                 "
               >
 
                 <div
                   className="
-                    w-6
-                    h-6
-
+                    w-5
+                    h-5
+                    md:w-6
+                    md:h-6
                     rounded-full
-
                     border
                     border-[#F3ECE4]/60
                   "
@@ -253,19 +233,18 @@ export default function kaffeConcept() {
 
               </div>
 
-              <div>
+              <div className="pl-2 md:pl-4">
 
-                <p className="text-[#F3ECE4]/35 text-xs tracking-[0.3em] uppercase mb-1">
+                <p className="text-[#F3ECE4]/35 text-[10px] md:text-xs tracking-[0.3em] uppercase mb-1">
                   Café
                 </p>
 
                 <h2
                   className="
                     text-[#F3ECE4]
-
-                    text-4xl
+                    text-3xl
+                    sm:text-4xl
                     md:text-6xl
-
                     font-semibold
                     tracking-tight
                     leading-none
@@ -283,7 +262,14 @@ export default function kaffeConcept() {
           {/* COFFEE */}
           <motion.div
             animate={{
-              left: isOpen ? "0%" : "72%",
+              left: isOpen
+                ? isMobile
+                  ? "2%"
+                  : "0%"
+                : isMobile
+                ? "78%"
+                : "72%",
+
               x: isOpen ? 0 : "-50%",
             }}
             transition={{
@@ -313,7 +299,6 @@ export default function kaffeConcept() {
                 -top-10
                 left-1/2
                 -translate-x-1/2
-
                 flex
                 gap-2
               "
@@ -326,55 +311,159 @@ export default function kaffeConcept() {
             </motion.div>
 
             {/* CUP */}
-            <div
+            <motion.div
+              whileHover="hover"
               className="
                 relative
-
-                w-[120px]
-                h-[120px]
-
-                sm:w-[150px]
-                sm:h-[150px]
-
+                group
+                w-[90px]
+                h-[90px]
+                sm:w-[130px]
+                sm:h-[130px]
                 md:w-[210px]
                 md:h-[210px]
-
                 rounded-full
-
                 bg-[#2A1D17]
-
                 border
                 border-[#D7B28A]/10
-
                 shadow-[0_30px_80px_rgba(0,0,0,0.4)]
-
                 flex
                 items-center
                 justify-center
+                overflow-hidden
               "
             >
 
+              {/* INNER COFFEE */}
               <div
                 className="
-                  w-[90px]
-                  h-[90px]
-
-                  sm:w-[110px]
-                  sm:h-[110px]
-
+                  relative
+                  w-[70px]
+                  h-[70px]
+                  sm:w-[95px]
+                  sm:h-[95px]
                   md:w-[160px]
                   md:h-[160px]
-
                   rounded-full
-
                   bg-[radial-gradient(circle,#6B4632_0%,#3A241A_70%)]
-
                   border
                   border-black/20
+                  flex
+                  items-center
+                  justify-center
+                  overflow-hidden
                 "
-              />
+              >
 
-            </div>
+                {/* FOAM */}
+                <motion.div
+                  variants={{
+                    hover: {
+                      scale: 1.03,
+                      opacity: 1,
+                    },
+                  }}
+                  transition={{
+                    duration: 0.7,
+                  }}
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle,#F5E8DA_0%,#E8D8C7_58%,transparent_100%)]
+                    opacity-95
+                    contrast-125
+                    brightness-105
+                  "
+                />
+
+                {/* LATTE HEART */}
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    scale: 0.8,
+                  }}
+                  variants={{
+                    hover: {
+                      opacity: 0.42,
+                      scale: 1,
+                    },
+                  }}
+                  transition={{
+                    duration: 1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="
+                    absolute
+                    inset-0
+                    flex
+                    items-center
+                    justify-center
+                  "
+                >
+
+                  <div className="relative w-14 h-14 md:w-20 md:h-20">
+
+                    {/* LEFT */}
+                    <div
+                      className="
+                        absolute
+                        left-[8px]
+                        top-[10px]
+                        w-6
+                        h-10
+                        md:w-8
+                        md:h-14
+                        rounded-full
+                        bg-[#9E7A61]/40
+                        rotate-[-45deg]
+                        blur-[3px]
+                        mix-blend-multiply
+                      "
+                    />
+
+                    {/* RIGHT */}
+                    <div
+                      className="
+                        absolute
+                        right-[8px]
+                        top-[10px]
+                        w-6
+                        h-10
+                        md:w-8
+                        md:h-14
+                        rounded-full
+                        bg-[#9E7A61]/40
+                        rotate-[45deg]
+                        blur-[3px]
+                        mix-blend-multiply
+                      "
+                    />
+
+                    {/* CENTER */}
+                    <div
+                      className="
+                        absolute
+                        left-1/2
+                        bottom-[6px]
+                        -translate-x-1/2
+                        w-[8px]
+                        h-[20px]
+                        md:w-[10px]
+                        md:h-[28px]
+                        rounded-full
+                        bg-[#9E7A61]/35
+                        blur-[3px]
+                        mix-blend-multiply
+                      "
+                    />
+
+                  </div>
+
+                </motion.div>
+
+              </div>
+
+            </motion.div>
 
           </motion.div>
 
@@ -392,10 +481,8 @@ export default function kaffeConcept() {
           className="
             h-px
             w-32
-
             mt-8
             mb-10
-
             bg-gradient-to-r
             from-[#D7B28A]
             to-transparent
@@ -412,13 +499,11 @@ export default function kaffeConcept() {
             duration: 0.5,
           }}
           className="
-            max-w-2xl
-
+            max-w-[90%]
+            md:max-w-2xl
             text-[#F3ECE4]/55
-
             text-base
             md:text-lg
-
             leading-relaxed
           "
         >
@@ -436,23 +521,17 @@ export default function kaffeConcept() {
               flex
               items-center
               justify-center
-
               w-16
               h-16
-
               rounded-full
-
               border
               border-[#D7B28A]/10
-
               bg-white/[0.04]
-
               text-[#F3ECE4]/70
-
               transition-all
               duration-500
-
               hover:bg-white/[0.07]
+              active:scale-[0.96]
             "
           >
 
@@ -513,35 +592,31 @@ export default function kaffeConcept() {
                     }}
                     className="
                       rounded-[36px]
-
                       border
                       border-[#D7B28A]/10
-
                       bg-white/[0.03]
-
-                      p-8
+                      p-6
+                      md:p-8
                     "
                   >
 
                     <div
                       className="
-                        w-16
-                        h-16
-
+                        w-14
+                        h-14
+                        md:w-16
+                        md:h-16
                         rounded-2xl
-
                         bg-white/[0.04]
-
                         border
                         border-white/10
-
                         flex
                         items-center
                         justify-center
-
-                        text-3xl
-
-                        mb-8
+                        text-2xl
+                        md:text-3xl
+                        mb-6
+                        md:mb-8
                       "
                     >
                       {item.emoji}
@@ -550,20 +625,17 @@ export default function kaffeConcept() {
                     <h3
                       className="
                         text-[#F3ECE4]
-
-                        text-2xl
-
+                        text-xl
+                        md:text-2xl
                         font-semibold
-
                         tracking-tight
-
                         mb-4
                       "
                     >
                       {item.title}
                     </h3>
 
-                    <p className="text-[#F3ECE4]/55 leading-relaxed">
+                    <p className="text-[#F3ECE4]/55 leading-relaxed text-sm md:text-base">
                       {item.text}
                     </p>
 
