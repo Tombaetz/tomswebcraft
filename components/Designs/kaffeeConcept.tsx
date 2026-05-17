@@ -5,15 +5,270 @@ import {
   motion,
 } from "framer-motion";
 
-import { ChevronDown } from "lucide-react";
-
 import {
-  useEffect,
-  useState,
-} from "react";
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+
+import { useState } from "react";
+
+const slides = [
+  {
+    id: "concept",
+    label: "Concept",
+
+    content: (
+      <div className="grid md:grid-cols-3 gap-6">
+
+        {[
+          {
+            title: "Atmosphäre",
+            text: "Warme Farben, ruhige Kontraste und organische Oberflächen erzeugen ein gemütliches digitales Café Gefühl.",
+            emoji: "☕",
+          },
+          {
+            title: "Gemütlichkeit",
+            text: "Das Design soll sich langsam, ruhig und natürlich anfühlen statt technisch oder steril.",
+            emoji: "🪵",
+          },
+          {
+            title: "Momente",
+            text: "Der Fokus liegt auf echten Gesprächen, kleinen Momenten und emotionaler Wiedererkennung.",
+            emoji: "✨",
+          },
+        ].map((item) => (
+
+          <motion.div
+            key={item.title}
+            whileHover={{
+              y: -4,
+            }}
+            transition={{
+              duration: 0.35,
+            }}
+            className="
+              rounded-[36px]
+              border
+              border-[#D7B28A]/10
+              bg-white/[0.03]
+              p-6
+              md:p-8
+              backdrop-blur-xl
+            "
+          >
+
+            <div
+              className="
+                w-14
+                h-14
+
+                rounded-2xl
+
+                bg-white/[0.04]
+
+                border
+                border-white/10
+
+                flex
+                items-center
+                justify-center
+
+                text-2xl
+
+                mb-6
+              "
+            >
+              {item.emoji}
+            </div>
+
+            <h3
+              className="
+                text-[#F3ECE4]
+                text-2xl
+                font-semibold
+                tracking-tight
+                mb-4
+              "
+            >
+              {item.title}
+            </h3>
+
+            <p className="text-[#F3ECE4]/55 leading-relaxed">
+              {item.text}
+            </p>
+
+          </motion.div>
+
+        ))}
+
+      </div>
+    ),
+  },
+
+  {
+    id: "bestseller",
+    label: "Bestseller",
+
+    content: (
+      <div className="grid md:grid-cols-3 gap-4">
+
+        {[
+          {
+            emoji: "☕",
+            name: "Cappuccino",
+            price: "4.90€",
+          },
+          {
+            emoji: "🥐",
+            name: "Butter Croissant",
+            price: "3.50€",
+          },
+          {
+            emoji: "🍰",
+            name: "Cheesecake",
+            price: "5.20€",
+          },
+        ].map((item) => (
+
+          <motion.div
+            key={item.name}
+            whileHover={{
+              borderColor: "rgba(215,178,138,0.18)",
+              backgroundColor: "rgba(255,255,255,0.04)",
+            }}
+            transition={{
+              duration: 0.3,
+            }}
+            className="
+              rounded-[32px]
+
+              border
+              border-transparent
+
+              p-8
+
+              transition-all
+              duration-500
+            "
+          >
+
+            <div className="text-5xl mb-8">
+              {item.emoji}
+            </div>
+
+            <h3
+              className="
+                text-[#F3ECE4]
+                text-2xl
+                font-semibold
+                tracking-tight
+                mb-2
+              "
+            >
+              {item.name}
+            </h3>
+
+            <p className="text-[#D7B28A] text-lg">
+              {item.price}
+            </p>
+
+          </motion.div>
+
+        ))}
+
+      </div>
+    ),
+  },
+
+  {
+    id: "team",
+    label: "Team",
+
+    content: (
+      <div className="grid md:grid-cols-3 gap-6">
+
+        {[
+          {
+            emoji: "👨🏻‍🍳",
+            name: "Leon",
+            role: "Head Barista",
+          },
+          {
+            emoji: "👩🏽‍💻",
+            name: "Mia",
+            role: "Digital Experience",
+          },
+          {
+            emoji: "🧔🏼",
+            name: "Noah",
+            role: "Roasting & Concept",
+          },
+        ].map((item) => (
+
+          <div
+            key={item.name}
+            className="
+              rounded-[36px]
+
+              border
+              border-[#D7B28A]/10
+
+              bg-white/[0.03]
+
+              p-8
+            "
+          >
+
+            <div className="text-5xl mb-8">
+              {item.emoji}
+            </div>
+
+            <h3
+              className="
+                text-[#F3ECE4]
+                text-2xl
+                font-semibold
+                mb-2
+              "
+            >
+              {item.name}
+            </h3>
+
+            <p className="text-[#F3ECE4]/55">
+              {item.role}
+            </p>
+
+          </div>
+
+        ))}
+
+      </div>
+    ),
+  },
+];
 
 export default function kaffeConcept() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [activeSlide, setActiveSlide] =
+    useState(0);
+
+  const nextSlide = () => {
+    setActiveSlide((prev) =>
+      prev === slides.length - 1
+        ? 0
+        : prev + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setActiveSlide((prev) =>
+      prev === 0
+        ? slides.length - 1
+        : prev - 1
+    );
+  };
 
   const isMobile =
     typeof window !== "undefined" &&
@@ -87,7 +342,8 @@ export default function kaffeConcept() {
           pt-10
           md:pt-14
 
-          pb-28
+          pb-40
+          md:pb-24
         "
       >
 
@@ -187,70 +443,134 @@ export default function kaffeConcept() {
 
           </motion.div>
 
-          {/* BRAND */}
+          {/* MOVING COFFEE */}
           <motion.div
             animate={{
-              opacity: isOpen ? 1 : 0,
-              x: isOpen ? 0 : 120,
+              left: isOpen
+                ? isMobile
+                  ? "4%"
+                  : "0%"
+                : isMobile
+                ? "78%"
+                : "72%",
+
+              x: isOpen ? 0 : "-50%",
             }}
             transition={{
-              duration: 1.2,
-              delay: isOpen ? 0.25 : 0,
+              duration: 1.5,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="
               absolute
-              right-4
-              md:right-16
-              top-10
-              z-10
+              top-6
+              z-20
             "
           >
 
-            <div className="flex items-center gap-3 md:gap-5">
+            <div className="flex items-center gap-4 md:gap-6">
 
-              {/* LOGO */}
+              {/* CUP */}
               <div
                 className="
-                  w-12
-                  h-12
+                  relative
 
-                  md:w-14
-                  md:h-14
+                  w-[92px]
+                  h-[92px]
+
+                  sm:w-[110px]
+                  sm:h-[110px]
+
+                  md:w-[210px]
+                  md:h-[210px]
 
                   rounded-full
 
-                  border
-                  border-[#D7B28A]/20
-
                   bg-[#2A1D17]
+
+                  border
+                  border-[#D7B28A]/10
+
+                  shadow-[0_30px_80px_rgba(0,0,0,0.4)]
 
                   flex
                   items-center
                   justify-center
 
+                  overflow-hidden
+
                   shrink-0
                 "
               >
 
+                {/* STEAM */}
+                <motion.div
+                  animate={{
+                    y: [-2, -10, -2],
+                    opacity: [0.2, 0.4, 0.2],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="
+                    absolute
+                    -top-8
+                    left-1/2
+                    -translate-x-1/2
+
+                    flex
+                    gap-2
+                  "
+                >
+
+                  <div className="w-[2px] h-10 rounded-full bg-white/10 blur-[1px]" />
+                  <div className="w-[2px] h-14 rounded-full bg-white/10 blur-[1px]" />
+                  <div className="w-[2px] h-10 rounded-full bg-white/10 blur-[1px]" />
+
+                </motion.div>
+
+                {/* INNER */}
                 <div
                   className="
-                    w-5
-                    h-5
+                    w-[72px]
+                    h-[72px]
 
-                    md:w-6
-                    md:h-6
+                    sm:w-[88px]
+                    sm:h-[88px]
+
+                    md:w-[160px]
+                    md:h-[160px]
 
                     rounded-full
 
-                    border
-                    border-[#F3ECE4]/60
+                    bg-[radial-gradient(circle,#F6EBDD_0%,#E7D5C3_58%,#D7C0AB_100%)]
+
+                    shadow-[inset_0_10px_30px_rgba(0,0,0,0.12)]
                   "
                 />
 
               </div>
 
-              <div className="pl-2 md:pl-4">
+              {/* BRAND */}
+              <motion.div
+                animate={{
+                  opacity: isOpen ? 1 : 0,
+                  x: isOpen ? 0 : 80,
+                }}
+                transition={{
+                  duration: 1,
+                  delay: isOpen ? 0.2 : 0,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="
+                  flex
+                  flex-col
+
+                  pr-6
+                  md:pr-0
+                "
+              >
 
                 <p
                   className="
@@ -273,185 +593,24 @@ export default function kaffeConcept() {
                   className="
                     text-[#F3ECE4]
 
-                    text-3xl
-                    sm:text-4xl
+                    text-[38px]
+                    sm:text-5xl
                     md:text-6xl
 
                     font-semibold
 
                     tracking-tight
                     leading-none
+
+                    whitespace-nowrap
                   "
                 >
                   Noir Café
                 </h2>
 
-              </div>
+              </motion.div>
 
             </div>
-
-          </motion.div>
-
-          {/* COFFEE */}
-          <motion.div
-            animate={{
-              left: isOpen
-                ? isMobile
-                  ? "2%"
-                  : "0%"
-                : isMobile
-                ? "78%"
-                : "72%",
-
-              x: isOpen ? 0 : "-50%",
-            }}
-            transition={{
-              duration: 1.5,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="
-              absolute
-              top-6
-              z-20
-            "
-          >
-
-            {/* STEAM */}
-            <motion.div
-              animate={{
-                y: [-2, -12, -2],
-                opacity: [0.2, 0.45, 0.2],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="
-                absolute
-                -top-10
-                left-1/2
-                -translate-x-1/2
-
-                flex
-                gap-2
-              "
-            >
-
-              <div className="w-[2px] h-10 rounded-full bg-white/20 blur-[1px]" />
-              <div className="w-[2px] h-14 rounded-full bg-white/20 blur-[1px]" />
-              <div className="w-[2px] h-10 rounded-full bg-white/20 blur-[1px]" />
-
-            </motion.div>
-
-            {/* CUP */}
-            <motion.div
-              whileHover={{
-                y: -2,
-              }}
-              transition={{
-                duration: 0.5,
-              }}
-              className="
-                relative
-
-                w-[90px]
-                h-[90px]
-
-                sm:w-[130px]
-                sm:h-[130px]
-
-                md:w-[210px]
-                md:h-[210px]
-
-                rounded-full
-
-                bg-[#2A1D17]
-
-                border
-                border-[#D7B28A]/10
-
-                shadow-[0_30px_80px_rgba(0,0,0,0.4)]
-
-                flex
-                items-center
-                justify-center
-
-                overflow-hidden
-              "
-            >
-
-              {/* GLASS RING */}
-              <div
-                className="
-                  absolute
-                  inset-0
-
-                  rounded-full
-
-                  border
-                  border-white/[0.06]
-
-                  bg-[linear-gradient(145deg,rgba(255,255,255,0.06),transparent)]
-
-                  backdrop-blur-[2px]
-                "
-              />
-
-              {/* INNER COFFEE */}
-              <div
-                className="
-                  relative
-
-                  w-[70px]
-                  h-[70px]
-
-                  sm:w-[95px]
-                  sm:h-[95px]
-
-                  md:w-[160px]
-                  md:h-[160px]
-
-                  rounded-full
-
-                  bg-[radial-gradient(circle,#6B4632_0%,#3A241A_70%)]
-
-                  border
-                  border-black/20
-
-                  overflow-hidden
-                "
-              >
-
-                {/* FOAM */}
-                <div
-                  className="
-                    absolute
-                    inset-0
-
-                    bg-[radial-gradient(circle,#F5E8DA_0%,#E8D8C7_58%,transparent_100%)]
-
-                    opacity-95
-                    contrast-125
-                    brightness-105
-                  "
-                />
-
-                {/* REFLECTION */}
-                <div
-                  className="
-                    absolute
-                    inset-0
-
-                    bg-[linear-gradient(120deg,rgba(255,255,255,0.14),transparent_45%)]
-
-                    opacity-70
-                  "
-                />
-
-              </div>
-
-            </motion.div>
 
           </motion.div>
 
@@ -579,7 +738,168 @@ export default function kaffeConcept() {
               className="overflow-hidden"
             >
 
-              <CoffeeCarousel />
+              {/* CATEGORY NAV */}
+              <div
+                className="
+                  relative
+
+                  flex
+                  items-center
+                  justify-center
+
+                  mb-12
+                  pt-20
+                "
+              >
+
+                {/* CENTERED BUTTONS */}
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                    md:gap-3
+                  "
+                >
+
+                  {slides.map((item, index) => (
+
+                    <button
+                      key={item.id}
+                      onClick={() =>
+                        setActiveSlide(index)
+                      }
+                      className={`
+                        px-4 py-2 rounded-full transition-all duration-500
+                        ${
+                          activeSlide === index
+                            ? "bg-[#F3ECE4] text-black"
+                            : "bg-white/[0.04] text-[#F3ECE4]/55 hover:bg-white/[0.08]"
+                        }
+                      `}
+                    >
+                      {item.label}
+                    </button>
+
+                  ))}
+
+                </div>
+
+                {/* DESKTOP ARROWS */}
+                <div
+                  className="
+                    hidden
+                    md:flex
+
+                    items-center
+                    gap-3
+
+                    absolute
+                    right-0
+                  "
+                >
+
+                  <button
+                    onClick={prevSlide}
+                    className="
+                      w-12
+                      h-12
+
+                      rounded-full
+
+                      border
+                      border-white/10
+
+                      bg-white/[0.04]
+
+                      flex
+                      items-center
+                      justify-center
+
+                      hover:bg-white/[0.08]
+
+                      transition-all
+                    "
+                  >
+                    <ChevronLeft className="w-5 h-5 text-white" />
+                  </button>
+
+                  <button
+                    onClick={nextSlide}
+                    className="
+                      w-12
+                      h-12
+
+                      rounded-full
+
+                      border
+                      border-white/10
+
+                      bg-white/[0.04]
+
+                      flex
+                      items-center
+                      justify-center
+
+                      hover:bg-white/[0.08]
+
+                      transition-all
+                    "
+                  >
+                    <ChevronRight className="w-5 h-5 text-white" />
+                  </button>
+
+                </div>
+
+              </div>
+
+              {/* SWIPE */}
+              <motion.div
+                drag={isMobile ? "x" : false}
+                dragConstraints={{
+                  left: 0,
+                  right: 0,
+                }}
+                dragElastic={0.08}
+                onDragEnd={(e, info) => {
+
+                  if (info.offset.x < -80) {
+                    nextSlide();
+                  }
+
+                  if (info.offset.x > 80) {
+                    prevSlide();
+                  }
+                }}
+              >
+
+                <AnimatePresence mode="wait">
+
+                  <motion.div
+                    key={activeSlide}
+                    initial={{
+                      opacity: 0,
+                      x: 40,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      x: -40,
+                    }}
+                    transition={{
+                      duration: 0.45,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    {slides[activeSlide].content}
+                  </motion.div>
+
+                </AnimatePresence>
+
+              </motion.div>
 
             </motion.div>
 
@@ -590,473 +910,5 @@ export default function kaffeConcept() {
       </div>
 
     </motion.section>
-  );
-}
-
-function CoffeeCarousel() {
-
-  const sections = [
-    {
-      label: "Concept",
-    },
-    {
-      label: "Bestseller",
-    },
-    {
-      label: "Team",
-    },
-  ];
-
-  const [current, setCurrent] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
-
-  useEffect(() => {
-
-    if (!autoPlay) return;
-
-    const interval = setInterval(() => {
-
-      setCurrent((prev) =>
-        prev === sections.length - 1
-          ? 0
-          : prev + 1
-      );
-
-    }, 5000);
-
-    return () => clearInterval(interval);
-
-  }, [autoPlay]);
-
-  return (
-
-    <div className="pt-24">
-
-      {/* MENU */}
-      <div className="flex gap-3 mb-12">
-
-        {sections.map((section, index) => (
-
-          <button
-            key={section.label}
-            onClick={() => {
-              setCurrent(index);
-              setAutoPlay(false);
-            }}
-            className="
-              relative
-
-              flex-1
-
-              h-[44px]
-
-              rounded-full
-
-              overflow-hidden
-
-              border
-              border-white/[0.06]
-
-              bg-white/[0.03]
-            "
-          >
-
-            {/* ACTIVE BG */}
-            <motion.div
-              animate={{
-                opacity: current === index ? 1 : 0,
-              }}
-              transition={{
-                duration: 0.4,
-              }}
-              className="
-                absolute
-                inset-0
-
-                bg-[#D7B28A]/10
-              "
-            />
-
-            {/* TIMER */}
-            {autoPlay && current === index && (
-
-              <motion.div
-                initial={{
-                  width: "0%",
-                }}
-                animate={{
-                  width: "100%",
-                }}
-                transition={{
-                  duration: 5,
-                  ease: "linear",
-                }}
-                className="
-                  absolute
-                  left-0
-                  bottom-0
-
-                  h-[2px]
-
-                  bg-[#D7B28A]
-                "
-              />
-
-            )}
-
-            <div
-              className="
-                relative
-                z-10
-
-                h-full
-
-                flex
-                items-center
-                justify-center
-
-                text-sm
-                tracking-tight
-
-                text-[#F3ECE4]/70
-              "
-            >
-              {section.label}
-            </div>
-
-          </button>
-
-        ))}
-
-      </div>
-
-      {/* SLIDER */}
-      <div className="overflow-hidden">
-
-        <motion.div
-          drag="x"
-          dragConstraints={{
-            left: 0,
-            right: 0,
-          }}
-          onDragStart={() => {
-            setAutoPlay(false);
-          }}
-          onDragEnd={(e, info) => {
-
-            if (info.offset.x < -80) {
-
-              setCurrent((prev) =>
-                prev === sections.length - 1
-                  ? 0
-                  : prev + 1
-              );
-
-            }
-
-            if (info.offset.x > 80) {
-
-              setCurrent((prev) =>
-                prev === 0
-                  ? sections.length - 1
-                  : prev - 1
-              );
-
-            }
-
-          }}
-          animate={{
-            x: `-${current * 100}%`,
-          }}
-          transition={{
-            duration: 0.9,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="
-            flex
-
-            cursor-grab
-            active:cursor-grabbing
-          "
-        >
-
-          {/* PAGE 1 */}
-          <div className="min-w-full">
-
-            <div className="grid md:grid-cols-3 gap-6">
-
-              {[
-                {
-                  title: "Atmosphäre",
-                  text: "Warme Farben, ruhige Kontraste und organische Oberflächen erzeugen ein gemütliches digitales Café Gefühl.",
-                  emoji: "☕",
-                },
-                {
-                  title: "Gemütlichkeit",
-                  text: "Das Design soll sich langsam, ruhig und natürlich anfühlen statt technisch oder steril.",
-                  emoji: "🪵",
-                },
-                {
-                  title: "Momente",
-                  text: "Der Fokus liegt auf echten Gesprächen, kleinen Momenten und emotionaler Wiedererkennung.",
-                  emoji: "✨",
-                },
-              ].map((item) => (
-
-                <motion.div
-                  key={item.title}
-                  whileHover={{
-                    y: -6,
-                  }}
-                  transition={{
-                    duration: 0.35,
-                  }}
-                  className="
-                    rounded-[36px]
-
-                    border
-                    border-[#D7B28A]/10
-
-                    bg-white/[0.03]
-
-                    p-6
-                    md:p-8
-                  "
-                >
-
-                  <div
-                    className="
-                      w-14
-                      h-14
-
-                      md:w-16
-                      md:h-16
-
-                      rounded-2xl
-
-                      bg-white/[0.04]
-
-                      border
-                      border-white/10
-
-                      flex
-                      items-center
-                      justify-center
-
-                      text-2xl
-                      md:text-3xl
-
-                      mb-6
-                    "
-                  >
-                    {item.emoji}
-                  </div>
-
-                  <h3
-                    className="
-                      text-[#F3ECE4]
-
-                      text-xl
-                      md:text-2xl
-
-                      font-semibold
-
-                      tracking-tight
-
-                      mb-4
-                    "
-                  >
-                    {item.title}
-                  </h3>
-
-                  <p className="text-[#F3ECE4]/55 leading-relaxed text-sm md:text-base">
-                    {item.text}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-          {/* PAGE 2 */}
-          <div className="min-w-full">
-
-            <div className="space-y-3">
-
-              {[
-                {
-                  name: "Cappuccino",
-                  price: "4.90€",
-                  emoji: "☕",
-                },
-                {
-                  name: "Vanilla Latte",
-                  price: "5.40€",
-                  emoji: "🥛",
-                },
-                {
-                  name: "Cold Brew",
-                  price: "4.50€",
-                  emoji: "🧊",
-                },
-                {
-                  name: "Croissant",
-                  price: "3.20€",
-                  emoji: "🥐",
-                },
-              ].map((item) => (
-
-                <motion.div
-                  key={item.name}
-                  whileHover={{
-                    backgroundColor: "rgba(255,255,255,0.04)",
-                    borderColor: "rgba(215,178,138,0.12)",
-                  }}
-                  className="
-                    rounded-[28px]
-
-                    border
-                    border-transparent
-
-                    px-6
-                    py-5
-
-                    flex
-                    items-center
-                    justify-between
-
-                    transition-all
-                    duration-500
-                  "
-                >
-
-                  <div className="flex items-center gap-5">
-
-                    <div className="text-2xl">
-                      {item.emoji}
-                    </div>
-
-                    <h3 className="text-[#F3ECE4] text-lg tracking-tight">
-                      {item.name}
-                    </h3>
-
-                  </div>
-
-                  <div className="text-[#F3ECE4]/45 text-sm">
-                    {item.price}
-                  </div>
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-          {/* PAGE 3 */}
-          <div className="min-w-full">
-
-            <div className="grid md:grid-cols-3 gap-6">
-
-              {[
-                {
-                  name: "Lena",
-                  role: "Barista & Atmosphäre",
-                  emoji: "👩🏻",
-                },
-                {
-                  name: "Noah",
-                  role: "Coffee Roasting",
-                  emoji: "🧔🏻",
-                },
-                {
-                  name: "Mila",
-                  role: "Community & Events",
-                  emoji: "👩🏽",
-                },
-              ].map((person) => (
-
-                <motion.div
-                  key={person.name}
-                  whileHover={{
-                    y: -6,
-                  }}
-                  transition={{
-                    duration: 0.35,
-                  }}
-                  className="
-                    rounded-[36px]
-
-                    border
-                    border-[#D7B28A]/10
-
-                    bg-white/[0.03]
-
-                    p-8
-                  "
-                >
-
-                  <div
-                    className="
-                      w-20
-                      h-20
-
-                      rounded-full
-
-                      bg-white/[0.04]
-
-                      border
-                      border-white/10
-
-                      flex
-                      items-center
-                      justify-center
-
-                      text-4xl
-
-                      mb-8
-                    "
-                  >
-                    {person.emoji}
-                  </div>
-
-                  <h3
-                    className="
-                      text-[#F3ECE4]
-
-                      text-2xl
-
-                      font-semibold
-
-                      tracking-tight
-
-                      mb-3
-                    "
-                  >
-                    {person.name}
-                  </h3>
-
-                  <p className="text-[#F3ECE4]/55 leading-relaxed">
-                    {person.role}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </motion.div>
-
-      </div>
-
-    </div>
-
   );
 }

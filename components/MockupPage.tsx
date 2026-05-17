@@ -181,8 +181,7 @@ export default function MockupPage() {
 
                   <h2 className="text-3xl md:text-6xl font-semibold tracking-tight text-white max-w-4xl leading-[1]">
 
-                    Design als Schnittstelle
-                    zwischen Mensch und Bedürfnis
+                        Moderne Webseiten mit Klarheit und Atmosphäre
 
                   </h2>
 

@@ -211,7 +211,7 @@ export default function CTA_End() {
             />
 
             <span className="relative z-10 tracking-tight">
-              Kontakt aufnehmen
+              Konzept anfragen
             </span>
 
           </motion.button>

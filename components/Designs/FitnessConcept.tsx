@@ -7,7 +7,12 @@ import {
   useTransform,
 } from "framer-motion";
 
-import { ChevronDown } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+
 import { useState } from "react";
 
 const features = [
@@ -52,6 +57,9 @@ const pricing = [
 export default function FitnessConcept() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [activeFeature, setActiveFeature] =
+    useState(1);
+
   const { scrollYProgress } = useScroll();
 
   const heroScale = useTransform(
@@ -65,6 +73,22 @@ export default function FitnessConcept() {
     [0, 0.15],
     [1, 0]
   );
+
+  const nextFeature = () => {
+    setActiveFeature((prev) =>
+      prev === features.length - 1
+        ? 0
+        : prev + 1
+    );
+  };
+
+  const prevFeature = () => {
+    setActiveFeature((prev) =>
+      prev === 0
+        ? features.length - 1
+        : prev - 1
+    );
+  };
 
   return (
     <motion.div
@@ -168,7 +192,11 @@ export default function FitnessConcept() {
 
               <div className="hidden md:flex items-center gap-3">
 
-                {["Training", "Recovery", "Membership"].map((item) => (
+                {[
+                  "Training",
+                  "Recovery",
+                  "Membership",
+                ].map((item) => (
                   <button
                     key={item}
                     className="
@@ -232,9 +260,7 @@ export default function FitnessConcept() {
                   max-w-2xl
                 "
               >
-                Moderne Performance Experience mit dunkler
-                Ästhetik, kontrollierter Energie und
-                cinematic Motion.
+                Konzept für moderne Fitnessmarken mit Fokus auf Premium-Atmosphäre und mobile Nutzerführung.
               </p>
 
             </div>
@@ -378,133 +404,236 @@ export default function FitnessConcept() {
               {/* FEATURES */}
               <div>
 
-                <div className="mb-10">
+                <div className="mb-10 flex items-end justify-between gap-6">
 
-                  <p className="text-white/35 uppercase tracking-[0.25em] text-[10px] sm:text-xs mb-4">
-                    Features
-                  </p>
+                  <div>
 
-                  <h3 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white break-words">
-                    Training und Recovery.
-                  </h3>
+                    <p className="text-white/35 uppercase tracking-[0.25em] text-[10px] sm:text-xs mb-4">
+                      Features
+                    </p>
+
+                    <h3 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white break-words">
+                      Training und Recovery.
+                    </h3>
+
+                  </div>
+
+                  {/* DESKTOP ARROWS */}
+                  <div className="hidden md:flex items-center gap-3">
+
+                    <button
+                      onClick={prevFeature}
+                      className="
+                        w-12
+                        h-12
+                        rounded-full
+                        border
+                        border-white/10
+                        bg-white/[0.04]
+                        flex
+                        items-center
+                        justify-center
+                        hover:bg-white/[0.08]
+                        transition-all
+                      "
+                    >
+                      <ChevronLeft className="w-5 h-5 text-white" />
+                    </button>
+
+                    <button
+                      onClick={nextFeature}
+                      className="
+                        w-12
+                        h-12
+                        rounded-full
+                        border
+                        border-white/10
+                        bg-white/[0.04]
+                        flex
+                        items-center
+                        justify-center
+                        hover:bg-white/[0.08]
+                        transition-all
+                      "
+                    >
+                      <ChevronRight className="w-5 h-5 text-white" />
+                    </button>
+
+                  </div>
 
                 </div>
 
+                {/* 3D STACK */}
                 <div
                   className="
+                    relative
+                    h-[430px]
+                    sm:h-[520px]
+
                     flex
-                    gap-4
-                    overflow-x-auto
-                    pb-4
+                    items-center
+                    justify-center
 
-                    snap-x
-                    snap-mandatory
-                    scroll-smooth
-
-                    [scrollbar-width:none]
-                    [&::-webkit-scrollbar]:hidden
+                    overflow-hidden
                   "
                 >
 
-                  {features.map((feature) => (
-                    <motion.div
-                      whileHover={{
-                        y: -4,
-                      }}
-                      transition={{
-                        duration: 0.35,
-                      }}
-                      key={feature.title}
-                      className="
-                        w-[72vw]
-                        sm:w-[380px]
-                        md:w-[420px]
+                  {features.map((feature, index) => {
 
-                        snap-center
+                    const offset =
+                      index - activeFeature;
 
-                        rounded-[30px]
-                        overflow-hidden
+                    const isActive =
+                      offset === 0;
 
-                        border
-                        border-white/10
+                    return (
 
-                        bg-[#202020]
+                      <motion.div
+                        key={feature.title}
+                        drag="x"
+                        dragConstraints={{
+                          left: 0,
+                          right: 0,
+                        }}
+                        onDragEnd={(e, info) => {
 
-                        shrink-0
-                      "
-                    >
+                          if (info.offset.x < -80) {
+                            nextFeature();
+                          }
 
-                      {/* EMOJI AREA */}
-                      <div
-                        className={`
-                          relative
-                          h-[220px]
-                          sm:h-[300px]
+                          if (info.offset.x > 80) {
+                            prevFeature();
+                          }
+                        }}
+                        animate={{
+                          x:
+                            offset === 0
+                              ? 0
+                              : offset < 0
+                              ? -260
+                              : 260,
 
+                          scale:
+                            isActive
+                              ? 1
+                              : 0.82,
+
+                          opacity:
+                            isActive
+                              ? 1
+                              : 0.38,
+
+                          rotateY:
+                            offset < 0
+                              ? 18
+                              : offset > 0
+                              ? -18
+                              : 0,
+
+                          zIndex:
+                            isActive
+                              ? 20
+                              : 10,
+                        }}
+                        transition={{
+                          duration: 0.7,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        style={{
+                          transformStyle:
+                            "preserve-3d",
+                        }}
+                        className="
+                          absolute
+
+                          w-[84vw]
+                          max-w-[620px]
+
+                          rounded-[34px]
                           overflow-hidden
 
-                          flex
-                          items-center
-                          justify-center
+                          border
+                          border-white/10
 
-                          bg-gradient-to-br
-                          ${feature.bg}
-                        `}
+                          bg-[#202020]
+
+                          shadow-[0_40px_120px_rgba(0,0,0,0.45)]
+                        "
                       >
 
-                        {/* LIGHT */}
+                        {/* EMOJI AREA */}
                         <div
-                          className="
-                            absolute
-                            inset-0
-                            bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)]
-                          "
-                        />
-
-                        {/* EMOJI */}
-                        <motion.div
-                          whileHover={{
-                            scale: 1.08,
-                            rotate: -3,
-                          }}
-                          transition={{
-                            duration: 0.45,
-                          }}
-                          className="
+                          className={`
                             relative
-                            z-10
+                            h-[220px]
+                            sm:h-[300px]
 
-                            text-[64px]
-                            sm:text-[120px]
+                            overflow-hidden
 
-                            select-none
+                            flex
+                            items-center
+                            justify-center
 
-                            drop-shadow-[0_0_30px_rgba(255,255,255,0.12)]
-                          "
+                            bg-gradient-to-br
+                            ${feature.bg}
+                          `}
                         >
-                          {feature.emoji}
-                        </motion.div>
 
-                        {/* OVERLAY */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                          {/* LIGHT */}
+                          <div
+                            className="
+                              absolute
+                              inset-0
+                              bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)]
+                            "
+                          />
 
-                      </div>
+                          {/* EMOJI */}
+                          <motion.div
+                            whileHover={{
+                              scale: 1.08,
+                              rotate: -3,
+                            }}
+                            transition={{
+                              duration: 0.45,
+                            }}
+                            className="
+                              relative
+                              z-10
 
-                      {/* TEXT */}
-                      <div className="p-5 sm:p-7">
+                              text-[72px]
+                              sm:text-[130px]
 
-                        <h4 className="text-lg sm:text-2xl font-semibold text-white mb-3 break-words">
-                          {feature.title}
-                        </h4>
+                              select-none
 
-                        <p className="text-white/55 leading-relaxed text-sm sm:text-base">
-                          {feature.text}
-                        </p>
+                              drop-shadow-[0_0_30px_rgba(255,255,255,0.12)]
+                            "
+                          >
+                            {feature.emoji}
+                          </motion.div>
 
-                      </div>
+                          {/* OVERLAY */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-                    </motion.div>
-                  ))}
+                        </div>
+
+                        {/* TEXT */}
+                        <div className="p-5 sm:p-7">
+
+                          <h4 className="text-lg sm:text-2xl font-semibold text-white mb-3 break-words">
+                            {feature.title}
+                          </h4>
+
+                          <p className="text-white/55 leading-relaxed text-sm sm:text-base">
+                            {feature.text}
+                          </p>
+
+                        </div>
+
+                      </motion.div>
+
+                    );
+                  })}
 
                 </div>
 
