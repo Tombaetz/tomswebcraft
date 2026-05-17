@@ -368,7 +368,6 @@ export default function FitnessConcept() {
                       tracking-tight
                       leading-tight
                       text-white
-                      break-words
                     "
                   >
                     Fokus auf klare Energie und kontrollierte Intensität.
@@ -412,7 +411,7 @@ export default function FitnessConcept() {
                       Features
                     </p>
 
-                    <h3 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white break-words">
+                    <h3 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white">
                       Training und Recovery.
                     </h3>
 
@@ -467,7 +466,8 @@ export default function FitnessConcept() {
                 <div
                   className="
                     relative
-                    h-[430px]
+
+                    h-[440px]
                     sm:h-[520px]
 
                     flex
@@ -491,17 +491,18 @@ export default function FitnessConcept() {
                       <motion.div
                         key={feature.title}
                         drag="x"
+                        dragElastic={0.08}
                         dragConstraints={{
                           left: 0,
                           right: 0,
                         }}
                         onDragEnd={(e, info) => {
 
-                          if (info.offset.x < -80) {
+                          if (info.offset.x < -70) {
                             nextFeature();
                           }
 
-                          if (info.offset.x > 80) {
+                          if (info.offset.x > 70) {
                             prevFeature();
                           }
                         }}
@@ -510,25 +511,30 @@ export default function FitnessConcept() {
                             offset === 0
                               ? 0
                               : offset < 0
-                              ? -260
-                              : 260,
+                              ? -230
+                              : 230,
 
                           scale:
                             isActive
                               ? 1
-                              : 0.82,
+                              : 0.92,
 
                           opacity:
                             isActive
                               ? 1
-                              : 0.38,
+                              : 0.72,
 
                           rotateY:
                             offset < 0
-                              ? 18
+                              ? 16
                               : offset > 0
-                              ? -18
+                              ? -16
                               : 0,
+
+                          filter:
+                            isActive
+                              ? "blur(0px)"
+                              : "blur(1px)",
 
                           zIndex:
                             isActive
@@ -536,7 +542,7 @@ export default function FitnessConcept() {
                               : 10,
                         }}
                         transition={{
-                          duration: 0.7,
+                          duration: 0.65,
                           ease: [0.22, 1, 0.36, 1],
                         }}
                         style={{
@@ -546,8 +552,9 @@ export default function FitnessConcept() {
                         className="
                           absolute
 
-                          w-[84vw]
-                          max-w-[620px]
+                          w-[82vw]
+                          sm:w-[72vw]
+                          md:w-[620px]
 
                           rounded-[34px]
                           overflow-hidden
@@ -620,7 +627,7 @@ export default function FitnessConcept() {
                         {/* TEXT */}
                         <div className="p-5 sm:p-7">
 
-                          <h4 className="text-lg sm:text-2xl font-semibold text-white mb-3 break-words">
+                          <h4 className="text-lg sm:text-2xl font-semibold text-white mb-3">
                             {feature.title}
                           </h4>
 
@@ -637,6 +644,31 @@ export default function FitnessConcept() {
 
                 </div>
 
+                {/* MOBILE INDICATORS */}
+                <div className="flex justify-center gap-2 mt-6 md:hidden">
+
+                  {features.map((_, index) => (
+
+                    <button
+                      key={index}
+                      onClick={() =>
+                        setActiveFeature(index)
+                      }
+                      className={`
+                        h-2 rounded-full transition-all duration-500
+
+                        ${
+                          activeFeature === index
+                            ? "w-10 bg-white"
+                            : "w-2 bg-white/20"
+                        }
+                      `}
+                    />
+
+                  ))}
+
+                </div>
+
               </div>
 
               {/* PRICING */}
@@ -648,7 +680,7 @@ export default function FitnessConcept() {
                     Memberships
                   </p>
 
-                  <h3 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white break-words">
+                  <h3 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white">
                     Mitgliedschaften.
                   </h3>
 
@@ -680,7 +712,7 @@ export default function FitnessConcept() {
                         {item.title}
                       </h4>
 
-                      <p className="text-4xl sm:text-6xl font-semibold tracking-tight text-white mb-8 break-words">
+                      <p className="text-4xl sm:text-6xl font-semibold tracking-tight text-white mb-8">
                         {item.price}
                       </p>
 
