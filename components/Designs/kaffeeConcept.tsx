@@ -435,7 +435,7 @@ export default function kaffeConcept() {
                 tracking-tight
                 font-semibold
 
-                max-w-[260px]
+                max-w-[190px]
                 sm:max-w-none
               "
             >
