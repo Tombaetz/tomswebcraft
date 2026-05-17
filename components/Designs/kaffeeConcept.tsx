@@ -425,8 +425,8 @@ export default function kaffeConcept() {
               className="
                 text-[#F3ECE4]
 
-                text-[56px]
-                sm:text-[64px]
+                text-[42px]
+                sm:text-[56px]
                 leading-[0.9]
 
                 sm:text-5xl
