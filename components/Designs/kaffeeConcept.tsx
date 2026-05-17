@@ -425,7 +425,8 @@ export default function kaffeConcept() {
               className="
                 text-[#F3ECE4]
 
-                text-[64px]
+                text-[56px]
+                sm:text-[64px]
                 leading-[0.9]
 
                 sm:text-5xl
@@ -466,7 +467,8 @@ export default function kaffeConcept() {
             }}
             className="
               absolute
-              top-[95px]
+              top-[150px]
+              sm:top-[135px]
               md:top-6
               z-20
             "
@@ -487,11 +489,14 @@ export default function kaffeConcept() {
                 className="
                   relative
 
-                  w-[120px]
-                  h-[120px]
+                 w-[78px]
+                 h-[78px]
 
-                  md:w-[220px]
-                  md:h-[220px]
+                sm:w-[95px]
+                sm:h-[95px]
+
+                md:w-[220px]
+                md:h-[220px]
 
                   flex
                   items-center
