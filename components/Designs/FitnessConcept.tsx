@@ -55,6 +55,7 @@ const pricing = [
 ];
 
 export default function FitnessConcept() {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [activeFeature, setActiveFeature] =
@@ -91,6 +92,7 @@ export default function FitnessConcept() {
   };
 
   return (
+
     <motion.div
       layout
       transition={{
@@ -462,12 +464,12 @@ export default function FitnessConcept() {
 
                 </div>
 
-                {/* 3D STACK */}
+                {/* FIXED MOBILE STACK */}
                 <div
                   className="
                     relative
 
-                    h-[440px]
+                    h-[430px]
                     sm:h-[520px]
 
                     flex
@@ -507,38 +509,34 @@ export default function FitnessConcept() {
                           }
                         }}
                         animate={{
+
                           x:
                             offset === 0
                               ? 0
                               : offset < 0
-                              ? -230
-                              : 230,
+                              ? -120
+                              : 120,
 
                           scale:
                             isActive
                               ? 1
-                              : 0.92,
+                              : 0.9,
 
                           opacity:
                             isActive
                               ? 1
-                              : 0.72,
+                              : 0.45,
 
                           rotateY:
                             offset < 0
-                              ? 16
+                              ? 10
                               : offset > 0
-                              ? -16
+                              ? -10
                               : 0,
-
-                          filter:
-                            isActive
-                              ? "blur(0px)"
-                              : "blur(1px)",
 
                           zIndex:
                             isActive
-                              ? 20
+                              ? 30
                               : 10,
                         }}
                         transition={{
@@ -552,9 +550,8 @@ export default function FitnessConcept() {
                         className="
                           absolute
 
-                          w-[82vw]
-                          sm:w-[72vw]
-                          md:w-[620px]
+                          w-[86vw]
+                          max-w-[620px]
 
                           rounded-[34px]
                           overflow-hidden
@@ -736,5 +733,6 @@ export default function FitnessConcept() {
       </AnimatePresence>
 
     </motion.div>
+
   );
 }
