@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const slides = [
@@ -249,6 +250,7 @@ const slides = [
 ];
 
 export default function kaffeConcept() {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [activeSlide, setActiveSlide] =
@@ -275,6 +277,7 @@ export default function kaffeConcept() {
     window.innerWidth < 768;
 
   return (
+
     <motion.section
       layout
       transition={{
@@ -303,7 +306,6 @@ export default function kaffeConcept() {
         className="
           absolute
           inset-0
-
           bg-[radial-gradient(circle_at_top,rgba(255,220,180,0.10),transparent_55%)]
         "
       />
@@ -312,7 +314,6 @@ export default function kaffeConcept() {
         className="
           absolute
           inset-0
-
           bg-gradient-to-b
           from-[#120D0A]
           via-[#2A1B14]
@@ -324,7 +325,6 @@ export default function kaffeConcept() {
         className="
           absolute
           inset-0
-
           bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.18)_100%)]
         "
       />
@@ -335,24 +335,24 @@ export default function kaffeConcept() {
           relative
           z-10
 
-          px-6
+          px-5
           sm:px-10
           md:px-16
 
-          pt-10
+          pt-8
           md:pt-14
 
-          pb-40
+          pb-32
           md:pb-24
         "
       >
 
         {/* TOP */}
-        <div className="flex justify-end mb-20">
+        <div className="flex justify-end mb-16 md:mb-20">
 
           <button
             className="
-              px-6
+              px-5
               py-3
 
               rounded-full
@@ -385,7 +385,8 @@ export default function kaffeConcept() {
 
             text-[11px]
 
-            mb-10
+            mb-8
+            md:mb-10
           "
         >
           Kaffee Concept
@@ -396,7 +397,8 @@ export default function kaffeConcept() {
           className="
             relative
 
-            min-h-[320px]
+            min-h-[260px]
+            sm:min-h-[300px]
             md:min-h-[420px]
 
             overflow-hidden
@@ -425,11 +427,12 @@ export default function kaffeConcept() {
               className="
                 text-[#F3ECE4]
 
-                text-4xl
+                text-[56px]
+                leading-[0.9]
+
                 sm:text-5xl
                 md:text-8xl
 
-                leading-[0.92]
                 tracking-tight
                 font-semibold
               "
@@ -443,114 +446,98 @@ export default function kaffeConcept() {
 
           </motion.div>
 
-          {/* MOVING COFFEE */}
+          {/* COFFEE + BRAND */}
           <motion.div
             animate={{
               left: isOpen
                 ? isMobile
-                  ? "4%"
+                  ? "2%"
                   : "0%"
                 : isMobile
-                ? "78%"
+                ? "58%"
                 : "72%",
+
+              top: isOpen
+                ? isMobile
+                  ? "10px"
+                  : "24px"
+                : "24px",
 
               x: isOpen ? 0 : "-50%",
             }}
             transition={{
-              duration: 1.5,
+              duration: 1.45,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="
               absolute
-              top-6
               z-20
             "
           >
 
-            <div className="flex items-center gap-4 md:gap-6">
+            <div
+              className="
+                flex
+                items-center
+
+                gap-3
+                md:gap-10
+              "
+            >
 
               {/* CUP */}
-              <div
+              <motion.div
+                whileHover={{
+                  y: -2,
+                }}
                 className="
                   relative
 
-                  w-[92px]
-                  h-[92px]
+                  shrink-0
 
-                  sm:w-[110px]
-                  sm:h-[110px]
+                  w-[150px]
+                  h-[150px]
 
-                  md:w-[210px]
-                  md:h-[210px]
+                  sm:w-[180px]
+                  sm:h-[180px]
 
-                  rounded-full
-
-                  bg-[#2A1D17]
-
-                  border
-                  border-[#D7B28A]/10
-
-                  shadow-[0_30px_80px_rgba(0,0,0,0.4)]
+                  md:w-[250px]
+                  md:h-[250px]
 
                   flex
                   items-center
                   justify-center
-
-                  overflow-hidden
-
-                  shrink-0
                 "
               >
 
-                {/* STEAM */}
-                <motion.div
-                  animate={{
-                    y: [-2, -10, -2],
-                    opacity: [0.2, 0.4, 0.2],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="
-                    absolute
-                    -top-8
-                    left-1/2
-                    -translate-x-1/2
-
-                    flex
-                    gap-2
-                  "
-                >
-
-                  <div className="w-[2px] h-10 rounded-full bg-white/10 blur-[1px]" />
-                  <div className="w-[2px] h-14 rounded-full bg-white/10 blur-[1px]" />
-                  <div className="w-[2px] h-10 rounded-full bg-white/10 blur-[1px]" />
-
-                </motion.div>
-
-                {/* INNER */}
+                {/* GLOW */}
                 <div
                   className="
-                    w-[72px]
-                    h-[72px]
-
-                    sm:w-[88px]
-                    sm:h-[88px]
-
-                    md:w-[160px]
-                    md:h-[160px]
+                    absolute
+                    inset-0
 
                     rounded-full
 
-                    bg-[radial-gradient(circle,#F6EBDD_0%,#E7D5C3_58%,#D7C0AB_100%)]
+                    bg-[#D7B28A]/10
 
-                    shadow-[inset_0_10px_30px_rgba(0,0,0,0.12)]
+                    blur-3xl
+                    scale-75
                   "
                 />
 
-              </div>
+                {/* IMAGE */}
+                <Image
+                  src="/images/tasse.png"
+                  alt="Coffee Cup"
+                  fill
+                  priority
+                  className="
+                    object-contain
+                    drop-shadow-[0_30px_40px_rgba(0,0,0,0.45)]
+                  "
+                />
+
+              </motion.div>
 
               {/* BRAND */}
               <motion.div
@@ -593,7 +580,7 @@ export default function kaffeConcept() {
                   className="
                     text-[#F3ECE4]
 
-                    text-[38px]
+                    text-[34px]
                     sm:text-5xl
                     md:text-6xl
 
@@ -629,7 +616,9 @@ export default function kaffeConcept() {
             h-px
             w-32
 
-            mt-8
+            mt-2
+            md:mt-8
+
             mb-10
 
             bg-gradient-to-r
@@ -648,15 +637,15 @@ export default function kaffeConcept() {
             duration: 0.5,
           }}
           className="
-            max-w-[90%]
+            max-w-[95%]
             md:max-w-2xl
 
             text-[#F3ECE4]/55
 
-            text-base
+            text-[15px]
             md:text-lg
 
-            leading-relaxed
+            leading-[1.8]
           "
         >
           Ein ruhiger Ort für Gespräche, Wärme und hochwertige
@@ -910,5 +899,6 @@ export default function kaffeConcept() {
       </div>
 
     </motion.section>
+
   );
 }
