@@ -467,8 +467,8 @@ export default function kaffeConcept() {
             }}
             className="
               absolute
-              top-[150px]
-              sm:top-[135px]
+              top-[56px]
+              sm:top-[80px]
               md:top-6
               z-20
             "
