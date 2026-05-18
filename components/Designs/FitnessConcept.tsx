@@ -550,7 +550,8 @@ export default function FitnessConcept() {
                         className="
                           absolute
 
-                          w-[86vw]
+                          w-[76vw]
+                          sm:w-[86vw]
                           max-w-[620px]
 
                           rounded-[34px]

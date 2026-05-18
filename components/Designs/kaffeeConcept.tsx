@@ -456,7 +456,7 @@ export default function kaffeConcept() {
                   ? "8%"
                   : "0%"
                 : isMobile
-                ? "82%"
+                ? "85%"
                 : "72%",
 
               x: isOpen ? 0 : "-50%",
@@ -489,8 +489,8 @@ export default function kaffeConcept() {
                 className="
                   relative
 
-                 w-[78px]
-                 h-[78px]
+                 w-[90px]
+                 h-[90px]
 
                 sm:w-[95px]
                 sm:h-[95px]
